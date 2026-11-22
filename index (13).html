@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Клінінг в Ужгороді — прибирання квартир, будинків та офісів</title>
+<meta name="description" content="Професійний клінінг квартир, будинків та офісів в Ужгороді. Чистота за 3–5 годин, гарантія якості, безпечна хімія. Оплата після особистої перевірки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --air:#F3FBFD;
+  --white:#FFFFFF;
+  --ink:#0F3B4C;
+  --ink-soft:#4B6F7C;
+  --aqua:#19B3C8;
+  --aqua-deep:#0E8FA5;
+  --mint:#8EE0CC;
+  --sky:#CDEFF7;
+  --line:#D5EBF1;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--air);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--aqua);outline-offset:3px;border-radius:12px}
+
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;padding:0 clamp(20px,5vw,64px);
+  background:
+    radial-gradient(60% 50% at 85% 20%, var(--sky) 0%, transparent 70%),
+    radial-gradient(45% 45% at 5% 95%, #DDF7EF 0%, transparent 70%),
+    linear-gradient(180deg,#F9FEFF 0%,var(--air) 100%);
+}
+/* bubbles */
+.bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bubble{
+  position:absolute;bottom:-80px;border-radius:50%;
+  background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.95) 0 12%,rgba(255,255,255,.25) 28%,rgba(25,179,200,.10) 70%,rgba(25,179,200,.22) 100%);
+  border:1px solid rgba(25,179,200,.25);
+  animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{transform:translate3d(0,0,0) scale(.8);opacity:0}
+  10%{opacity:1}
+  100%{transform:translate3d(var(--dx,30px),-115vh,0) scale(1.1);opacity:0}
+}
+
+.bar{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;max-width:1240px;margin:0 auto;padding:22px 0}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;line-height:1.15;letter-spacing:-.01em}
+.logo span{display:block;max-width:15ch}
+.logo i{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--aqua),var(--mint))}
+.logo svg{width:20px;height:20px}
+.phone{font-weight:600;font-size:16px;padding:10px 18px;border-radius:999px;background:var(--white);border:1px solid var(--line);transition:border-color .2s}
+.phone:hover{border-color:var(--aqua)}
+
+.wrap{
+  position:relative;z-index:2;flex:1;width:100%;max-width:1240px;margin:0 auto;
+  padding:clamp(12px,3vh,32px) 0 clamp(32px,6vh,72px);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:center;
+}
+.copy{max-width:660px}
+
+/* the one big moment: the headline is "wiped clean" */
+h1{
+  position:relative;display:inline-block;
+  font-size:clamp(32px,5.1vw,68px);line-height:1.06;font-weight:800;letter-spacing:-.025em;
+}
+h1::after{
+  content:"";position:absolute;inset:-8px -12px;
+  background:rgba(170,190,198,.55);
+  -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);
+  animation:wipe 1.5s .5s cubic-bezier(.65,0,.25,1) forwards;
+  pointer-events:none;
+}
+@keyframes wipe{
+  from{clip-path:inset(0 0 0 0)}
+  to{clip-path:inset(0 0 0 100%)}
+}
+h1::before{
+  content:"";position:absolute;top:-14px;bottom:-14px;left:-30px;width:54px;z-index:2;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);
+  transform:skewX(-18deg);opacity:0;pointer-events:none;
+  animation:sweep 1.5s .5s cubic-bezier(.65,0,.25,1) forwards;
+}
+@keyframes sweep{
+  0%{left:-30px;opacity:1}
+  100%{left:100%;opacity:1}
+}
+.sub{
+  margin-top:24px;max-width:56ch;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:var(--ink-soft);
+  opacity:0;transform:translateY(10px);animation:in .7s 1.6s ease forwards;
+}
+.sub b{color:var(--ink);font-weight:600}
+@keyframes in{to{opacity:1;transform:none}}
+
+.perks{list-style:none;margin-top:32px;display:grid;gap:14px;max-width:560px;opacity:0;animation:in .7s 1.8s ease forwards}
+.perks li{display:flex;align-items:center;gap:14px;font-size:16px;line-height:1.4;font-weight:500}
+.ico{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--white);border:1px solid var(--line);box-shadow:0 6px 18px -8px rgba(14,143,165,.35)}
+.ico svg{width:22px;height:22px;stroke:var(--aqua-deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;opacity:0;animation:in .7s 2s ease forwards}
+.btn{
+  border:0;position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;
+  padding:18px 28px;border-radius:16px;font-weight:600;font-size:16px;font-family:inherit;cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s;
+}
+.btn-main{color:#fff;background:linear-gradient(135deg,var(--aqua) 0%,var(--aqua-deep) 100%);box-shadow:0 14px 30px -12px rgba(14,143,165,.7)}
+.btn-main::after{
+  content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);
+  animation:glint 4.5s 3s ease-in-out infinite;
+}
+@keyframes glint{0%,60%{left:-60%}100%{left:130%}}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(14,143,165,.8)}
+.btn-alt{color:var(--ink);background:var(--white);border:1.5px solid var(--line)}
+.btn[type=submit]{width:100%}
+.btn-alt:hover{border-color:var(--aqua);transform:translateY(-2px)}
+
+/* visual */
+.visual{position:relative;aspect-ratio:1/1;width:100%;max-width:520px;justify-self:center}
+.orb{
+  position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle at 32% 26%,#fff 0%,#E8FAFD 38%,var(--sky) 70%,#B8E8F2 100%);
+  box-shadow:inset -18px -24px 60px rgba(25,179,200,.18),0 40px 80px -30px rgba(14,143,165,.45);
+  display:grid;place-items:center;
+  animation:float 7s ease-in-out infinite;
+}
+.orb::before{content:"";position:absolute;top:12%;left:17%;width:26%;height:14%;border-radius:50%;background:rgba(255,255,255,.85);transform:rotate(-28deg);filter:blur(2px)}
+.house{width:48%;height:auto;filter:drop-shadow(0 14px 20px rgba(14,143,165,.25))}
+@keyframes float{50%{transform:translateY(-14px)}}
+
+.spark{position:absolute;width:var(--s,30px);height:var(--s,30px);color:var(--c,var(--aqua));animation:twinkle 2.8s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes twinkle{0%,100%{transform:scale(.3) rotate(0);opacity:0}50%{transform:scale(1) rotate(45deg);opacity:1}}
+
+.chip{
+  position:absolute;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:16px;
+  background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border:1px solid var(--line);box-shadow:0 16px 30px -14px rgba(14,143,165,.45);
+  font-size:14px;font-weight:600;line-height:1.25;animation:float 6s ease-in-out infinite;
+}
+.chip small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px}
+.chip svg{width:26px;height:26px;stroke:var(--aqua-deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.chip.a{left:-2%;top:16%;animation-delay:-2s}
+.chip.b{right:-2%;bottom:14%;animation-delay:-4s}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr;gap:28px}
+  .visual{max-width:340px;order:-1;margin-bottom:-6px}
+  .chip.a{left:-4%}.chip.b{right:-4%}
+  h1::after{inset:-6px -8px}
+}
+@media (max-width:520px){
+  .phone{padding:9px 14px;font-size:15px}
+  .cta{flex-direction:column}
+  .btn{width:100%}
+  .chip{padding:9px 12px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  h1::after,h1::before{display:none}
+  .sub,.perks,.cta{opacity:1;transform:none}
+  .spark{opacity:1;transform:scale(.8)}
+  .bubbles{display:none}
+}
+
+/* popups */
+html.lock{overflow:hidden}
+.modal{
+  border:0;padding:0;margin:auto;width:min(520px,calc(100vw - 24px));max-height:calc(100svh - 24px);overflow:auto;
+  border-radius:28px;background:var(--white);color:var(--ink);font-family:var(--font);
+  box-shadow:0 40px 90px -20px rgba(15,59,76,.45);
+}
+.modal[open]{animation:pop .4s cubic-bezier(.2,.9,.3,1.2)}
+.modal::backdrop{background:rgba(15,59,76,.38);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.m-body{position:relative;padding:34px clamp(20px,5vw,36px) 30px;display:grid;gap:18px}
+.m-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--air);cursor:pointer;display:grid;place-items:center}
+.m-close:hover{border-color:var(--aqua)}
+.m-close svg{width:18px;height:18px;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+.m-body h2{font-size:clamp(22px,4vw,27px);line-height:1.15;letter-spacing:-.02em;padding-right:44px}
+.m-lead{color:var(--ink-soft);line-height:1.5;font-size:15px;margin-top:-6px}
+.f{display:grid;gap:8px;border:0;min-width:0}
+.f>span,.f>legend{font-size:14px;font-weight:600}
+.f input[type=text],.f input[type=tel],.f input[type=date],.f select,.f textarea{
+  width:100%;font:inherit;font-size:16px;color:var(--ink);padding:14px 16px;border-radius:14px;
+  border:1.5px solid var(--line);background:var(--air);transition:border-color .2s,background .2s;
+}
+.f textarea{resize:vertical;min-height:84px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--aqua);background:#fff}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.pill span{display:block;padding:10px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--air);font-size:15px;font-weight:500;transition:all .2s}
+.pill input:checked+span{background:var(--aqua);border-color:var(--aqua);color:#fff;box-shadow:0 8px 18px -8px rgba(14,143,165,.8)}
+.pill input:focus-visible+span{outline:3px solid var(--aqua);outline-offset:2px}
+.range{display:grid;gap:6px}
+.range-top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600}
+.range-top output{font-size:20px;font-weight:800;color:var(--aqua-deep)}
+input[type=range]{width:100%;accent-color:var(--aqua);height:28px}
+.price{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg,#E6F8FC,#E3F8F1);border:1px solid var(--line)}
+.price span{font-size:14px;color:var(--ink-soft);line-height:1.3}
+.price strong{font-size:clamp(24px,5vw,30px);font-weight:800;letter-spacing:-.02em;white-space:nowrap;transition:transform .25s}
+.price strong.bump{transform:scale(1.08)}
+.m-note{font-size:13px;color:var(--ink-soft);line-height:1.45;text-align:center}
+.m-err{color:#B3261E;font-size:14px;text-align:center}
+.m-done{padding:52px clamp(20px,5vw,36px);text-align:center;display:grid;gap:14px;justify-items:center}
+.m-done[hidden]{display:none}
+.m-done .tick{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--aqua),var(--mint));box-shadow:0 18px 34px -14px rgba(14,143,165,.7)}
+.m-done .tick svg{width:38px;height:38px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:draw .6s .25s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.m-done h3{font-size:24px;letter-spacing:-.02em}
+.m-done p{color:var(--ink-soft);line-height:1.5;max-width:34ch}
+.hp{position:absolute;left:-9999px}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+
+/* services */
+@property --mx{syntax:"<length-percentage>";inherits:true;initial-value:-200px}
+@property --my{syntax:"<length-percentage>";inherits:true;initial-value:50%}
+.services{position:relative;background:var(--white);padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px)}
+.services-in{max-width:1240px;margin:0 auto}
+.services h2{font-size:clamp(28px,4.2vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em;max-width:18ch}
+.services .hint{margin-top:16px;color:var(--ink-soft);font-size:16px;line-height:1.5;max-width:52ch}
+.grid{margin-top:clamp(32px,5vw,56px);display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{
+  display:flex;flex-direction:column;padding:14px 14px 24px;border-radius:30px;background:var(--air);
+  border:1px solid var(--line);transition:transform .3s ease,box-shadow .3s ease,border-color .3s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(14,143,165,.5);border-color:#B9E3EC}
+.scene{
+  position:relative;height:190px;border-radius:20px;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(150deg,#fff 0%,var(--tint,#DDF3F8) 100%);cursor:crosshair;touch-action:pan-y;
+}
+.scene>svg{width:96px;height:96px;overflow:visible;filter:drop-shadow(0 12px 14px rgba(14,143,165,.25))}
+.scene .tw{position:absolute;width:20px;height:20px;color:var(--aqua);animation:twinkle 2.8s ease-in-out infinite}
+.scene .tw.t1{left:16%;top:20%}
+.scene .tw.t2{right:16%;bottom:22%;color:#59D2BA;animation-delay:1.3s}
+.dust{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 30%,rgba(105,95,80,.55) 0 11px,transparent 12px),
+    radial-gradient(circle at 72% 22%,rgba(105,95,80,.45) 0 16px,transparent 17px),
+    radial-gradient(circle at 60% 72%,rgba(105,95,80,.5) 0 12px,transparent 13px),
+    radial-gradient(circle at 28% 78%,rgba(105,95,80,.4) 0 18px,transparent 19px),
+    radial-gradient(circle at 88% 60%,rgba(105,95,80,.4) 0 9px,transparent 10px),
+    rgba(166,180,186,.72);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  -webkit-mask-image:radial-gradient(circle 82px at var(--mx) var(--my),transparent 0,transparent 55%,#000 100%);
+  mask-image:radial-gradient(circle 82px at var(--mx) var(--my),transparent 0,transparent 55%,#000 100%);
+  transition:--mx .12s linear,--my .12s linear;
+}
+.scene.demo .dust{animation:demo 1.7s cubic-bezier(.5,0,.3,1) both;--my:52%}
+@keyframes demo{from{--mx:-90px}to{--mx:calc(100% + 90px)}}
+.card h3{margin:22px 10px 0;font-size:20px;line-height:1.2;font-weight:800;letter-spacing:-.015em}
+.cost{margin:12px 10px 0;font-size:34px;line-height:1;font-weight:800;letter-spacing:-.03em;color:var(--aqua-deep)}
+.cost small{font-size:15px;font-weight:600;letter-spacing:0;color:var(--ink-soft)}
+.card p{margin:14px 10px 0;color:var(--ink-soft);font-size:15px;line-height:1.6;flex:1}
+.card .go{
+  margin:20px 10px 0;align-self:flex-start;font:inherit;font-weight:600;font-size:15px;color:var(--ink);
+  background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:12px 18px;cursor:pointer;transition:border-color .2s,background .2s,color .2s;
+}
+.card .go:hover{border-color:var(--aqua);background:var(--aqua);color:#fff}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.grid{grid-template-columns:1fr}.scene{height:170px}}
+@media (prefers-reduced-motion:reduce){.dust{display:none}}
+
+/* calculator block */
+.calc{position:relative;overflow:hidden;padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px);
+  background:radial-gradient(50% 60% at 100% 0%,var(--sky) 0%,transparent 70%),radial-gradient(40% 50% at 0% 100%,#DDF7EF 0%,transparent 70%),var(--air)}
+.calc-in{position:relative;max-width:1240px;margin:0 auto}
+.calc h2{font-size:clamp(28px,4.2vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em;max-width:20ch}
+.calc-card{
+  margin-top:clamp(28px,5vw,52px);display:grid;grid-template-columns:1.25fr .75fr;gap:0;
+  background:var(--white);border:1px solid var(--line);border-radius:36px;overflow:hidden;
+  box-shadow:0 50px 90px -50px rgba(14,143,165,.55);
+}
+.calc-card[hidden]{display:none}
+.calc-fields{padding:clamp(24px,4vw,48px);display:grid;gap:30px;align-content:start}
+.calc-fields .f>legend,.calc-fields .lab{font-size:16px;font-weight:700;margin-bottom:12px;display:block;padding:0}
+.area-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.num{position:relative;flex:none;width:150px}
+.num input{width:100%;font:inherit;font-size:24px;font-weight:800;color:var(--ink);padding:14px 52px 14px 18px;border-radius:16px;border:1.5px solid var(--line);background:var(--air);-moz-appearance:textfield;transition:border-color .2s,background .2s}
+.num input::-webkit-outer-spin-button,.num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.num input:focus{outline:0;border-color:var(--aqua);background:#fff}
+.num span{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-weight:600;color:var(--ink-soft)}
+.area-row input[type=range]{flex:1;min-width:160px}
+.opts{display:grid;gap:10px}
+.opt{position:relative;display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:16px;border:1.5px solid var(--line);background:var(--air);cursor:pointer;transition:border-color .2s,background .2s}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt .box{flex:none;width:24px;height:24px;border-radius:8px;border:2px solid #A9D4DE;background:#fff;display:grid;place-items:center;transition:all .2s}
+.opt .box svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .25s ease}
+.opt .t{flex:1;font-size:16px;font-weight:500;line-height:1.35}
+.opt em{font-style:normal;font-size:14px;color:var(--ink-soft);white-space:nowrap}
+.opt:has(input:checked){border-color:var(--aqua);background:#EAFAFD}
+.opt input:checked~.box{background:var(--aqua);border-color:var(--aqua)}
+.opt input:checked~.box svg{stroke-dashoffset:0}
+.opt input:focus-visible~.box{outline:3px solid var(--aqua);outline-offset:2px}
+.step{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-2px 0 0 38px;padding:10px 14px 10px 18px;border-radius:14px;background:#EAFAFD;font-size:14px;font-weight:600}
+.step[hidden]{display:none}
+.step div{display:flex;align-items:center;gap:6px}
+.step button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--aqua);background:#fff;color:var(--aqua-deep);font:inherit;font-size:20px;line-height:1;cursor:pointer;transition:background .2s,color .2s}
+.step button:hover{background:var(--aqua);color:#fff}
+.step output{min-width:34px;text-align:center;font-size:18px;font-weight:800}
+
+.calc-result{
+  position:relative;padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:16px;
+  background:linear-gradient(165deg,#E6F8FC 0%,#DDF6EE 100%);border-left:1px solid var(--line);
+}
+.r-label{font-size:15px;color:var(--ink-soft);font-weight:500}
+.r-price{font-size:clamp(40px,5.6vw,60px);line-height:1;font-weight:800;letter-spacing:-.035em;color:var(--ink);white-space:nowrap}
+.r-price small{font-size:.45em;font-weight:700;letter-spacing:0;color:var(--aqua-deep);margin-left:6px}
+.r-list{list-style:none;display:grid;gap:8px;padding:14px 0;border-top:1px dashed #A9D4DE;border-bottom:1px dashed #A9D4DE;font-size:14px;line-height:1.35}
+.r-list li{display:flex;justify-content:space-between;gap:12px}
+.r-list li span:last-child{white-space:nowrap;font-weight:600}
+.r-list li.sub{color:var(--ink-soft)}
+.calc-result .f input[type=tel]{background:#fff}
+.calc-result .f>span{font-size:14px;font-weight:600}
+.calc-done{margin-top:clamp(28px,5vw,52px);background:var(--white);border:1px solid var(--line);border-radius:36px;box-shadow:0 50px 90px -50px rgba(14,143,165,.55)}
+@media (max-width:900px){
+  .calc-card{grid-template-columns:1fr}
+  .calc-result{border-left:0;border-top:1px solid var(--line)}
+}
+
+/* before / after */
+.work{position:relative;background:var(--white);padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px)}
+.work-in{max-width:1240px;margin:0 auto}
+.work h2{font-size:clamp(28px,4.2vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em;max-width:20ch}
+.work .lead{margin-top:16px;color:var(--ink-soft);font-size:clamp(16px,1.5vw,19px);line-height:1.5;max-width:54ch}
+.ba-grid{margin-top:clamp(32px,5vw,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px)}
+.ba{margin:0}
+.ba-view{
+  position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;cursor:ew-resize;touch-action:pan-y;user-select:none;-webkit-user-select:none;
+  box-shadow:0 36px 60px -36px rgba(14,143,165,.55);background:var(--sky);
+}
+.ba-view:focus-visible{outline:3px solid var(--aqua);outline-offset:4px}
+.ba-layer{position:absolute;inset:0}
+.ba-layer>svg,.ba-layer>img{display:block;width:100%;height:100%;object-fit:cover}
+.ba-after{clip-path:inset(0 0 0 var(--pos));-webkit-clip-path:inset(0 0 0 var(--pos))}
+.tag{position:absolute;top:14px;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);pointer-events:none;box-shadow:0 8px 16px -8px rgba(15,59,76,.4)}
+.tag-b{left:14px;color:var(--ink)}
+.tag-a{right:14px;color:var(--aqua-deep)}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;transform:translateX(-50%);background:#fff;box-shadow:0 0 18px rgba(255,255,255,.95),0 0 2px rgba(15,59,76,.35);pointer-events:none}
+.knob{position:absolute;top:50%;left:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 12px 24px -8px rgba(15,59,76,.55)}
+.knob::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(255,255,255,.9);animation:ring 2.2s ease-out infinite}
+.ba-view.used .knob::after{display:none}
+@keyframes ring{from{transform:scale(.8);opacity:1}to{transform:scale(1.5);opacity:0}}
+.knob svg{width:24px;height:24px;stroke:var(--aqua-deep);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ba figcaption{margin:18px 6px 0;font-size:16px;line-height:1.55;font-weight:500}
+@media (max-width:900px){
+  .ba-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+}
+@media (prefers-reduced-motion:reduce){.knob::after{display:none}}
+
+/* trust */
+.trust{position:relative;overflow:hidden;padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px);
+  background:radial-gradient(45% 50% at 0% 0%,#DDF7EF 0%,transparent 70%),radial-gradient(50% 60% at 100% 100%,var(--sky) 0%,transparent 70%),var(--air)}
+.trust-in{position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:clamp(32px,5vw,72px);align-items:start}
+.trust-head{position:sticky;top:48px}
+.trust h2{font-size:clamp(28px,4.2vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em}
+.badge{position:relative;margin-top:clamp(28px,4vw,48px);width:min(240px,60%);aspect-ratio:1;animation:float 7s ease-in-out infinite}
+.badge::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(25,179,200,.28),transparent 70%);filter:blur(10px)}
+.badge svg{position:relative;width:100%;height:100%;overflow:visible}
+.badge .sh{fill:rgba(255,255,255,.75);stroke:var(--aqua);stroke-width:2.5;stroke-linejoin:round}
+.badge .ck{fill:none;stroke:var(--aqua-deep);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.js .badge .sh,.js .badge .ck{stroke-dasharray:1;stroke-dashoffset:1}
+.js .trust.in .badge .sh{animation:draw5 1.4s .1s ease forwards}
+.js .trust.in .badge .ck{animation:draw5 .8s 1.2s ease forwards}
+@keyframes draw5{to{stroke-dashoffset:0}}
+.t-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.t-card{
+  --x:50%;--y:50%;position:relative;overflow:hidden;padding:clamp(22px,3vw,32px);border-radius:30px;background:var(--white);border:1px solid var(--line);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s;
+}
+.t-card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x) var(--y),rgba(25,179,200,.16),transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
+.t-card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(14,143,165,.5);border-color:#B9E3EC}
+.t-card:hover::before{opacity:1}
+.t-ico{position:relative;width:72px;height:72px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#E6F8FC,#DDF6EE);border:1px solid var(--line);transition:background .35s,transform .35s}
+.t-ico svg{width:42px;height:42px;fill:none;stroke:var(--aqua-deep);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.t-card:hover .t-ico{background:linear-gradient(145deg,var(--aqua),var(--aqua-deep));transform:rotate(-6deg) scale(1.06)}
+.t-card:hover .t-ico svg{stroke:#fff}
+.t-card h3{position:relative;margin-top:22px;font-size:clamp(19px,2vw,22px);line-height:1.2;font-weight:800;letter-spacing:-.015em}
+.t-card p{position:relative;margin-top:12px;font-size:15.5px;line-height:1.65;color:var(--ink-soft)}
+.js .t-card{opacity:0;transform:translateY(28px)}
+.js .trust.in .t-card{animation:rise5 .7s calc(var(--i)*.14s + .2s) cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes rise5{to{opacity:1;transform:none}}
+.js .t-ico path,.js .t-ico rect,.js .t-ico circle{stroke-dasharray:1;stroke-dashoffset:1}
+.js .trust.in .t-ico path,.js .trust.in .t-ico rect,.js .trust.in .t-ico circle{animation:draw5 1s calc(var(--i)*.14s + .5s) ease forwards}
+@media (max-width:1000px){
+  .trust-in{grid-template-columns:1fr}
+  .trust-head{position:static}
+  .badge{display:none}
+}
+@media (max-width:620px){.t-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .js .t-card{opacity:1;transform:none;animation:none!important}
+  .js .trust .badge .sh,.js .trust .badge .ck,.js .t-ico path,.js .t-ico rect,.js .t-ico circle{stroke-dashoffset:0;animation:none!important}
+  .badge{animation:none}
+}
+
+/* reviews */
+.rev{position:relative;overflow:hidden;background:var(--white);padding:clamp(64px,10vw,120px) 0}
+.rev-head{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.rev h2{font-size:clamp(28px,4.2vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em;max-width:16ch}
+.rev-view{margin-top:clamp(32px,5vw,56px);overflow:hidden;padding:12px 0 56px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.rev-track{display:flex;width:max-content;animation:slide 60s linear infinite}
+.rev-view:hover .rev-track,.rev-view:focus-within .rev-track{animation-play-state:paused}
+.grp{display:flex;gap:22px;padding-right:22px;align-items:flex-start}
+@keyframes slide{to{transform:translateX(-50%)}}
+.shot{
+  flex:none;width:286px;border-radius:28px;overflow:hidden;background:#fff;border:1px solid var(--line);
+  box-shadow:0 30px 50px -28px rgba(15,59,76,.45);transition:transform .35s cubic-bezier(.2,.8,.3,1);
+}
+.shot:nth-child(even){margin-top:40px}
+.shot:hover{transform:translateY(-8px) rotate(-1.2deg)}
+.sh-head{display:flex;align-items:center;gap:10px;padding:14px 14px;color:#fff}
+.v .sh-head{background:linear-gradient(135deg,#7360F2,#8F7CF6)}
+.t .sh-head{background:linear-gradient(135deg,#2AABEE,#4FC3F7)}
+.back{font-size:26px;line-height:1;margin-right:-2px;opacity:.9}
+.av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:17px;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.sh-head b{display:block;font-size:15px;line-height:1.2}
+.sh-head small{font-size:12px;opacity:.85}
+.sh-body{display:flex;flex-direction:column;gap:8px;padding:14px 12px 18px;min-height:300px;justify-content:flex-start}
+.v .sh-body{background:#EFEBFC}
+.t .sh-body{background:linear-gradient(180deg,#D8EAF4,#E4F2EA)}
+.day{align-self:center;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(15,59,76,.12);color:var(--ink-soft)}
+.msg{margin:0;max-width:86%;padding:9px 12px 6px;border-radius:16px;font-size:14px;line-height:1.4;box-shadow:0 2px 6px -3px rgba(15,59,76,.3)}
+.msg time{display:block;margin-top:3px;text-align:right;font-size:10.5px;opacity:.6}
+.msg.in{align-self:flex-start;background:#fff;border-bottom-left-radius:5px}
+.v .msg.out{align-self:flex-end;background:#8F7CF6;color:#fff;border-bottom-right-radius:5px}
+.t .msg.out{align-self:flex-end;background:#E3F6C8;border-bottom-right-radius:5px}
+.sh-foot{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#fff;border-top:1px solid var(--line);font-size:13px;color:#9AB2BB}
+.sh-foot i{width:26px;height:26px;border-radius:50%;background:var(--air);border:1px solid var(--line)}
+.r-grid{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rcard{position:relative;margin:0;padding:clamp(24px,3vw,34px);border-radius:30px;background:var(--air);border:1px solid var(--line);display:flex;flex-direction:column;gap:16px;transition:transform .3s,box-shadow .3s}
+.rcard:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(14,143,165,.5)}
+.rcard .q{position:absolute;right:22px;top:20px;width:52px;height:52px;fill:#CDEFF7}
+.stars{display:flex;gap:3px}
+.stars svg{width:20px;height:20px;fill:#FFB938}
+.rcard blockquote{position:relative;font-size:16px;line-height:1.65;flex:1}
+.rcard figcaption{display:flex;align-items:center;gap:14px}
+.ph{flex:none;width:56px;height:56px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 18px -8px rgba(14,143,165,.6)}
+.ph svg,.ph img{display:block;width:100%;height:100%;object-fit:cover}
+.rcard figcaption b{display:block;font-size:16px}
+.rcard figcaption small{font-size:14px;color:var(--ink-soft)}
+@media (max-width:1000px){.r-grid{grid-template-columns:1fr;max-width:640px}}
+@media (hover:none),(prefers-reduced-motion:reduce){
+  .rev-view{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-mask-image:none;mask-image:none;padding-left:clamp(20px,5vw,64px);padding-right:20px;-webkit-overflow-scrolling:touch}
+  .rev-track{animation:none}
+  .grp[aria-hidden="true"]{display:none}
+  .shot{scroll-snap-align:center}
+}
+
+/* process */
+.flow{position:relative;overflow:hidden;padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px);
+  background:radial-gradient(45% 50% at 100% 0%,var(--sky) 0%,transparent 70%),radial-gradient(40% 50% at 0% 100%,#DDF7EF 0%,transparent 70%),var(--air)}
+.flow-in{max-width:1240px;margin:0 auto}
+.flow h2{font-size:clamp(28px,4.2vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em;max-width:20ch}
+.steps{list-style:none;margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:repeat(4,1fr)}
+.st{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px}
+.st:not(:last-child)::before,.st:not(:last-child)::after{content:"";position:absolute;top:34px;left:50%;width:100%;height:4px;border-radius:4px}
+.st:not(:last-child)::before{background:var(--line)}
+.st:not(:last-child)::after{background:linear-gradient(90deg,var(--aqua),var(--mint));transform:scaleX(0);transform-origin:left;transition:transform .55s ease var(--d,0s)}
+.st.on:not(:last-child)::after{transform:scaleX(1);transition-delay:calc(var(--d,0s) + .2s)}
+.num{
+  position:relative;z-index:1;flex:none;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;
+  font-size:28px;font-weight:800;background:#fff;border:3px solid var(--line);color:#9AB6C0;
+  transition:all .5s cubic-bezier(.2,.9,.3,1.3) var(--d,0s);
+}
+.st.on .num{background:linear-gradient(135deg,var(--aqua),var(--aqua-deep));border-color:#fff;color:#fff;transform:scale(1.1);
+  box-shadow:0 0 0 7px rgba(25,179,200,.16),0 18px 30px -10px rgba(14,143,165,.7)}
+.sbody{
+  flex:1;margin-top:28px;width:100%;padding:26px 22px 28px;border-radius:28px;background:#fff;border:1px solid var(--line);
+  opacity:.45;transform:translateY(14px);transition:opacity .6s ease var(--d,0s),transform .6s ease var(--d,0s),box-shadow .3s,border-color .3s;
+}
+.st.on .sbody{opacity:1;transform:none}
+.st.on .sbody:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(14,143,165,.5);border-color:#B9E3EC;transition-delay:0s}
+.sic{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;margin:0 auto;background:linear-gradient(145deg,#E6F8FC,#DDF6EE);border:1px solid var(--line)}
+.sic svg{width:26px;height:26px;fill:none;stroke:var(--aqua-deep);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sbody h3{margin-top:18px;font-size:clamp(18px,1.8vw,21px);line-height:1.25;font-weight:800;letter-spacing:-.015em}
+.sbody p{margin-top:10px;font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr}
+  .st{flex-direction:row;align-items:flex-start;text-align:left;gap:18px;padding:0 0 28px}
+  .st:last-child{padding-bottom:0}
+  .st:not(:last-child)::before,.st:not(:last-child)::after{top:36px;left:34px;width:4px;height:100%}
+  .st:not(:last-child)::after{background:linear-gradient(180deg,var(--aqua),var(--mint));transform:scaleY(0);transform-origin:top}
+  .st.on:not(:last-child)::after{transform:scaleY(1)}
+  .sbody{flex:1;margin-top:0;padding:22px 20px}
+  .sic{margin:0}
+  .num{width:68px;height:68px;font-size:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  .st *,.st::before,.st::after{transition:none!important}
+}
+
+/* contacts + footer */
+.contact{position:relative;overflow:hidden;background:var(--white);padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px)}
+.contact::before{content:"";position:absolute;right:-12%;top:-10%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--sky),transparent 70%)}
+.contact-in{position:relative;max-width:1240px;margin:0 auto}
+.contact h2{font-size:clamp(28px,4.2vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em;max-width:22ch}
+.c-wrap{margin-top:clamp(32px,5vw,56px);display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.c-card{display:flex;align-items:center;gap:14px;padding:20px 18px;border-radius:24px;background:var(--air);border:1px solid var(--line);transition:transform .3s,box-shadow .3s,border-color .3s}
+.c-card:hover{transform:translateY(-4px);box-shadow:0 24px 40px -26px rgba(14,143,165,.5);border-color:#B9E3EC}
+.c-card.wide{grid-column:1/-1}
+.c-ico{flex:none;width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);box-shadow:0 8px 18px -10px rgba(14,143,165,.5)}
+.c-ico svg{width:26px;height:26px;fill:none;stroke:var(--aqua-deep);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c-txt small{display:block;font-size:13.5px;color:var(--ink-soft);line-height:1.3}
+.c-txt{min-width:0}
+.c-txt a.big{white-space:nowrap}
+.c-txt b,.c-txt a.big{display:block;margin-top:4px;font-size:clamp(16px,1.45vw,19px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.c-txt a.big:hover{color:var(--aqua-deep)}
+.msgr{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.msgr a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:15px;color:#fff;transition:transform .2s,box-shadow .2s}
+.msgr a:hover{transform:translateY(-2px);box-shadow:0 12px 22px -10px rgba(15,59,76,.5)}
+.msgr .vb{background:linear-gradient(135deg,#7360F2,#8F7CF6)}
+.msgr .tg{background:linear-gradient(135deg,#2AABEE,#4FC3F7)}
+.msgr svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.geo{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.map{flex:none;width:min(220px,100%);aspect-ratio:200/150;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#EAF8FB}
+.map svg{display:block;width:100%;height:100%}
+.ring{fill:rgba(25,179,200,.18);stroke:var(--aqua);stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:radar 3.6s ease-out infinite;opacity:0}
+.ring:nth-of-type(2){animation-delay:1.2s}
+.ring:nth-of-type(3){animation-delay:2.4s}
+@keyframes radar{0%{transform:scale(.1);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pin{animation:float 3s ease-in-out infinite}
+.q-card{position:relative;padding:clamp(24px,3.4vw,40px);border-radius:32px;background:#fff;border:1px solid var(--line);box-shadow:0 50px 90px -50px rgba(14,143,165,.6);overflow:hidden}
+.q-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--aqua),var(--mint))}
+.q-card form{display:grid;gap:16px}
+.q-card form[hidden]{display:none}
+.q-card h3{font-size:clamp(21px,2.4vw,26px);line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.q-card .m-lead{margin-top:-6px}
+.foot{background:#E7F6FA;border-top:1px solid var(--line);padding:36px clamp(20px,5vw,64px) 28px}
+.foot-in{max-width:1240px;margin:0 auto;display:grid;gap:24px}
+.foot-top{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+.foot nav a{font-size:15px;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.foot nav a:hover{color:var(--aqua-deep)}
+.foot-bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #CBE6EE;font-size:14px;color:var(--ink-soft)}
+.foot-bot a{font-weight:600;color:var(--ink)}
+@media (max-width:1000px){.c-wrap{grid-template-columns:1fr}}
+@media (max-width:560px){.c-grid{grid-template-columns:1fr}.c-card.wide{grid-column:auto}}
+@media (prefers-reduced-motion:reduce){.ring{animation:none;opacity:.5;transform:none}.ring:nth-of-type(n+2){display:none}.pin{animation:none}}
+.scene>svg.pic,.scene>img.pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:none;overflow:hidden}
+.scene .tw{z-index:1}
+.dust{z-index:2}
+.hint-x{}
+.ba-layer>img{position:absolute;inset:0}
+.scene:has(img.pic) .tw{display:none}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <div class="bar">
+    <a href="#top" class="logo" aria-label="На головну">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></i>
+      <span>Клінінг для вашого комфорту</span>
+    </a>
+    <a class="phone" href="tel:+380964123785">+38 (096) 412-37-85</a>
+  </div>
+
+  <div class="wrap">
+    <div class="copy">
+      <h1>Професійний клінінг квартир, будинків та офісів в Ужгороді</h1>
+
+      <p class="sub">Наведемо ідеальну чистоту за <b>3–5 годин</b> із гарантією якості та безпечною професійною хімією. Ви оплачуєте роботу тільки після особистої перевірки!</p>
+
+      <ul class="perks">
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg></span>
+          Виїзд у будь-який район Ужгорода та передмістя
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6z"/><path d="M8.8 12.2l2.2 2.2 4.3-4.6"/></svg></span>
+          Всі клінери з досвідом від 2-х років та перевіреною репутацією
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8.5 14.5h.01M12 14.5h.01M15.5 14.5h.01"/></svg></span>
+          Працюємо 7 днів на тиждень у зручний для вас час
+        </li>
+      </ul>
+
+      <div class="cta">
+        <button type="button" class="btn btn-main" data-open="modal-calc">Розрахувати вартість прибирання</button>
+        <button type="button" class="btn btn-alt" data-open="modal-order">Замовити виїзд клінера</button>
+      </div>
+    </div>
+
+    <div class="visual" aria-hidden="true">
+      <div class="orb">
+        <svg class="house" viewBox="0 0 120 120" fill="none">
+          <path d="M16 56L60 20l44 36v44a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6z" fill="#fff" stroke="#19B3C8" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M8 58L60 15l52 43" stroke="#0E8FA5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="46" y="62" width="28" height="44" rx="5" fill="#CDEFF7" stroke="#19B3C8" stroke-width="3.5"/>
+          <circle cx="68" cy="86" r="2.4" fill="#0E8FA5"/>
+          <rect x="24" y="64" width="16" height="16" rx="3" fill="#CDEFF7" stroke="#19B3C8" stroke-width="3"/>
+          <rect x="80" y="64" width="16" height="16" rx="3" fill="#CDEFF7" stroke="#19B3C8" stroke-width="3"/>
+        </svg>
+      </div>
+
+      <svg class="spark" style="--s:38px;--d:0s;left:6%;top:8%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.200 11.200 11.200 6.200 12 0z"/></svg>
+      <svg class="spark" style="--s:26px;--d:.9s;--c:#59D2BA;right:10%;top:6%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.200 11.200 11.200 6.200 12 0z"/></svg>
+      <svg class="spark" style="--s:30px;--d:1.7s;right:2%;top:46%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.200 11.200 11.200 6.200 12 0z"/></svg>
+      <svg class="spark" style="--s:22px;--d:2.2s;--c:#59D2BA;left:4%;bottom:22%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.200 11.200 11.200 6.200 12 0z"/></svg>
+
+      <div class="chip a">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>3–5 годин<small>і все блищить</small></span>
+      </div>
+      <div class="chip b">
+        <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.500c0 4.400-3 8-7 9.500-4-1.500-7-5.100-7-9.500V6z"/><path d="M8.800 12.200l2.200 2.200 4.300-4.600"/></svg>
+        <span>Гарантія якості<small>оплата після перевірки</small></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="services" aria-labelledby="t-serv">
+  <div class="services-in">
+    <h2 id="t-serv">Послуги прибирання для будь-яких завдань</h2>
+    <p class="hint">Проведіть курсором по картинці — і побачите, як зникає бруд.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="scene" style="--tint:#D9F2F8">
+          <svg class="pic" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="aw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4FCFE"/><stop offset="1" stop-color="#DDF2F7"/></linearGradient><linearGradient id="as" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BDEBFA"/><stop offset="1" stop-color="#F6FDFF"/></linearGradient></defs><rect width="320" height="220" fill="url(#aw)"/><rect y="146" width="320" height="74" fill="#E8CD9F"/><path d="M0 170H320M0 194H320M70 146V170M190 170V194M120 194V220M250 146V170" stroke="#D5B27C" stroke-width="2"/><rect y="140" width="320" height="8" fill="#fff"/><rect x="26" y="22" width="92" height="96" rx="5" fill="#fff"/><rect x="34" y="30" width="76" height="80" fill="url(#as)"/><path d="M72 30v80M34 70h76" stroke="#fff" stroke-width="5"/><path d="M34 150L118 150L168 220H20z" fill="#fff" opacity=".35"/><rect x="196" y="66" width="104" height="44" rx="14" fill="#6CCFB0"/><rect x="190" y="92" width="116" height="52" rx="14" fill="#8EE0CC"/><rect x="204" y="98" width="42" height="26" rx="8" fill="#B5F0E0"/><rect x="252" y="98" width="42" height="26" rx="8" fill="#B5F0E0"/><rect x="200" y="142" width="8" height="8" rx="2" fill="#7A6A55"/><rect x="288" y="142" width="8" height="8" rx="2" fill="#7A6A55"/><rect x="128" y="118" width="54" height="7" rx="3" fill="#C9A06A"/><path d="M136 125v22M174 125v22" stroke="#C9A06A" stroke-width="5" stroke-linecap="round"/><g stroke="#19B3C8" stroke-width="2.5" stroke-linejoin="round"><rect x="144" y="88" width="20" height="30" rx="5" fill="#fff"/><path d="M148 88v-8h12v8" fill="#CDEFF7"/><path d="M146 80h20l8-5v10l-8-3z" fill="#CDEFF7"/></g><path d="M148 100h12" stroke="#59D2BA" stroke-width="3" stroke-linecap="round"/><path d="M48 54L72 162" stroke="#B58B55" stroke-width="5" stroke-linecap="round"/><ellipse cx="76" cy="170" rx="26" ry="9" fill="#fff" stroke="#19B3C8" stroke-width="2.5"/><path d="M58 172v12M68 174v13M78 175v13M88 174v12M96 172v10" stroke="#CDEFF7" stroke-width="4" stroke-linecap="round"/><ellipse cx="160" cy="205" rx="130" ry="9" fill="#fff" opacity=".35"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(112 40) scale(0.917)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(150 130) scale(0.667)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(270 50) scale(0.833)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(90 138) scale(0.667)" fill="#19B3C8" opacity="1"/></svg>
+          <img class="pic" data-photo="images/service-1" alt="" decoding="async">
+          <svg class="tw t1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg><svg class="tw t2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg>
+          <div class="dust" aria-hidden="true"></div>
+        </div>
+        <h3>Підтримувальне прибирання</h3>
+        <div class="cost"><small>від</small> 250 <small>грн</small></div>
+        <p>Вологе прибирання підлоги та поверхонь, протирання пилу, очищення дзеркал, винесення сміття. Ідеально для підтримки чистоти щотижня.</p>
+        <button type="button" class="go" data-open="modal-order">Замовити</button>
+      </article>
+      <article class="card">
+        <div class="scene" style="--tint:#D7F5EC">
+          <svg class="pic" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="bt" width="46" height="46" patternUnits="userSpaceOnUse"><rect width="46" height="46" fill="#E4F7FA"/><rect x="4" y="4" width="38" height="38" rx="4" fill="#fff" opacity=".6"/><path d="M0 0H46M0 0V46" stroke="#BDE3EC" stroke-width="2.5"/></pattern></defs><rect width="320" height="220" fill="url(#bt)"/><rect y="170" width="320" height="50" fill="#D3EBF1"/><rect y="166" width="320" height="8" fill="#fff"/><g fill="#fff"><circle cx="128" cy="104" r="19"/><circle cx="152" cy="94" r="23"/><circle cx="178" cy="102" r="20"/><circle cx="196" cy="114" r="14"/><circle cx="116" cy="118" r="13"/></g><g fill="none" stroke="#CDEFF7" stroke-width="2"><circle cx="128" cy="104" r="19"/><circle cx="152" cy="94" r="23"/><circle cx="178" cy="102" r="20"/></g><path d="M112 116H208L198 188H122z" fill="#19B3C8"/><path d="M112 116H208" stroke="#0E8FA5" stroke-width="6" stroke-linecap="round"/><path d="M126 134H194" stroke="#fff" stroke-width="3" opacity=".6" stroke-linecap="round"/><path d="M122 130L128 186" stroke="#fff" stroke-width="5" opacity=".35" stroke-linecap="round"/><ellipse cx="160" cy="190" rx="52" ry="7" fill="#0E8FA5" opacity=".15"/><g transform="rotate(-14 62 160)"><rect x="34" y="144" width="58" height="30" rx="8" fill="#FFD76A"/><rect x="34" y="162" width="58" height="12" rx="6" fill="#59D2BA"/><g fill="#F2B93C"><circle cx="46" cy="152" r="2"/><circle cx="62" cy="156" r="2"/><circle cx="78" cy="150" r="2"/></g></g><g stroke="#19B3C8" stroke-width="2.5" stroke-linejoin="round"><rect x="246" y="116" width="26" height="52" rx="7" fill="#fff"/><path d="M252 116v-12h14v12" fill="#CDEFF7"/><path d="M250 104h24l10-6v13l-10-3z" fill="#CDEFF7"/></g><rect x="250" y="134" width="18" height="16" rx="4" fill="#8EE0CC"/><g fill="none" stroke="#19B3C8" stroke-width="2" opacity=".75"><circle cx="90" cy="70" r="9"/><circle cx="226" cy="64" r="12"/><circle cx="60" cy="108" r="6"/><circle cx="250" cy="92" r="7"/><circle cx="190" cy="48" r="7"/></g><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(40 40) scale(0.917)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(280 150) scale(0.833)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(104 40) scale(0.667)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(220 30) scale(0.750)" fill="#19B3C8" opacity="1"/></svg>
+          <img class="pic" data-photo="images/service-2" alt="" decoding="async">
+          <svg class="tw t1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg><svg class="tw t2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg>
+          <div class="dust" aria-hidden="true"></div>
+        </div>
+        <h3>Генеральне прибирання</h3>
+        <div class="cost"><small>від</small> 45 <small>грн/м²</small></div>
+        <p>Глибоке очищення всіх важкодоступних місць, знежирення кухонних поверхонь, видалення стійкого нальоту у санвузлах.</p>
+        <button type="button" class="go" data-open="modal-order">Замовити</button>
+      </article>
+      <article class="card">
+        <div class="scene" style="--tint:#E3F0FA">
+          <svg class="pic" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs></defs><rect width="320" height="220" fill="#EEF4F6"/><rect x="236" width="84" height="150" fill="#BDEBFA"/><path d="M236 0V150" stroke="#9FDDF0" stroke-width="3"/><rect y="146" width="320" height="74" fill="#E9DFCB"/><path d="M0 146H320" stroke="#fff" stroke-width="8"/><path d="M30 150H190L212 220H8z" fill="#fff" opacity=".4"/><g stroke="#8FA9B4" stroke-width="5" stroke-linecap="round"><path d="M58 38L34 168M112 38L136 168"/></g><g stroke="#B6CBD3" stroke-width="4" stroke-linecap="round"><path d="M52 70H118M47 100H123M41 130H129M38 150H132"/></g><rect x="52" y="32" width="66" height="10" rx="4" fill="#fff" stroke="#8FA9B4" stroke-width="3"/><g stroke="#19B3C8" stroke-width="2.5" stroke-linejoin="round"><rect x="168" y="112" width="48" height="52" rx="5" fill="#fff"/></g><rect x="168" y="128" width="48" height="16" fill="#19B3C8"/><ellipse cx="192" cy="112" rx="24" ry="6" fill="#DCEEF3" stroke="#19B3C8" stroke-width="2.5"/><ellipse cx="192" cy="112" rx="18" ry="3.5" fill="#8FD9EA"/><path d="M180 112v14" stroke="#8FD9EA" stroke-width="5" stroke-linecap="round"/><g stroke="#19B3C8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><rect x="236" y="72" width="62" height="20" rx="8" fill="#fff"/><path d="M298 82h10v22h-44v12" fill="none"/><rect x="258" y="116" width="10" height="34" rx="4" fill="#CDEFF7"/></g><rect x="244" y="76" width="42" height="12" rx="5" fill="#8FD9EA"/><g fill="#D6D0C2" opacity=".9"><circle cx="146" cy="130" r="3"/><circle cx="154" cy="142" r="2"/><circle cx="214" cy="52" r="2.5"/><circle cx="196" cy="36" r="2"/><circle cx="160" cy="60" r="2"/></g><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(260 20) scale(0.917)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(142 12) scale(0.750)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(208 172) scale(0.833)" fill="#19B3C8" opacity="1"/></svg>
+          <img class="pic" data-photo="images/service-3" alt="" decoding="async">
+          <svg class="tw t1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg><svg class="tw t2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg>
+          <div class="dust" aria-hidden="true"></div>
+        </div>
+        <h3>Прибирання після ремонту</h3>
+        <div class="cost"><small>від</small> 55 <small>грн/м²</small></div>
+        <p>Видалення будівельного пилу, залишків ґрунтовки, штукатурки та фарби. Миття вікон і підготовка житла до заселення.</p>
+        <button type="button" class="go" data-open="modal-order">Замовити</button>
+      </article>
+      <article class="card">
+        <div class="scene" style="--tint:#DDF3F8">
+          <svg class="pic" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="ds" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CDEFF7"/><stop offset="1" stop-color="#F4FCFE"/></linearGradient><linearGradient id="dp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BDEBFA"/><stop offset="1" stop-color="#EAF9FF"/></linearGradient></defs><rect width="320" height="220" fill="url(#ds)"/><rect x="36" y="14" width="248" height="176" rx="8" fill="#fff" stroke="#CFE3EA" stroke-width="3"/><rect x="48" y="26" width="108" height="76" fill="url(#dp)"/><rect x="164" y="26" width="108" height="76" fill="url(#dp)"/><rect x="48" y="110" width="108" height="68" fill="url(#dp)"/><rect x="164" y="110" width="108" height="68" fill="url(#dp)"/><path d="M48 26H156V102H48zM48 110H156V178H48z" fill="#B7C5C9" opacity=".35"/><path d="M120 26L164 26 124 178 80 178z" fill="#fff" opacity=".55"/><path d="M130 40L148 40 112 170 98 170z" fill="#fff" opacity=".8"/><g transform="rotate(-18 190 112)"><rect x="150" y="104" width="86" height="16" rx="8" fill="#19B3C8"/><rect x="152" y="118" width="82" height="7" rx="3" fill="#0E8FA5"/><rect x="186" y="84" width="10" height="26" rx="5" fill="#0E8FA5"/></g><g fill="#8FD9EA"><circle cx="208" cy="138" r="3.500"/><circle cx="224" cy="152" r="2.500"/><circle cx="196" cy="160" r="2.500"/></g><rect x="24" y="186" width="272" height="12" rx="4" fill="#fff" stroke="#CFE3EA" stroke-width="2"/><path d="M262 186l4-22h20l4 22z" fill="#8EE0CC"/><g fill="#4CBF9F"><ellipse cx="276" cy="154" rx="6" ry="20"/><ellipse transform="rotate(-32 276 168)" cx="276" cy="150" rx="6" ry="18"/><ellipse transform="rotate(32 276 168)" cx="276" cy="150" rx="6" ry="18"/></g><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(70 44) scale(1.083)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(236 48) scale(0.833)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(118 134) scale(0.750)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(72 132) scale(0.583)" fill="#59D2BA" opacity="1"/></svg>
+          <img class="pic" data-photo="images/service-4" alt="" decoding="async">
+          <svg class="tw t1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg><svg class="tw t2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z"/></svg>
+          <div class="dust" aria-hidden="true"></div>
+        </div>
+        <h3>Миття вікон та балконів</h3>
+        <div class="cost"><small>від</small> 100 <small>грн/вікно</small></div>
+        <p>Миття скла з обох боків без розводів, очищення рам, підвіконь та москітних сіток.</p>
+        <button type="button" class="go" data-open="modal-order">Замовити</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="calc" id="calculator" aria-labelledby="t-calc-block">
+  <div class="calc-in">
+    <h2 id="t-calc-block">Дізнайтесь точну вартість прибирання за 30 секунд</h2>
+
+    <form class="calc-card" id="cb-form" name="calculator-block" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="calculator-block">
+      <input type="hidden" name="estimate" id="cb-estimate">
+      <input type="hidden" name="summary" id="cb-summary">
+      <p class="hp"><label>Не заповнюйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="calc-fields">
+        <fieldset class="f"><legend>Оберіть тип прибирання</legend>
+          <div class="pills">
+            <label class="pill"><input type="radio" name="kind" value="Підтримувальне" data-r="25" checked><span>Підтримувальне</span></label>
+            <label class="pill"><input type="radio" name="kind" value="Генеральне" data-r="45"><span>Генеральне</span></label>
+            <label class="pill"><input type="radio" name="kind" value="Після ремонту" data-r="55"><span>Після ремонту</span></label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label class="lab" for="cb-area">Вкажіть площу приміщення</label>
+          <div class="area-row">
+            <div class="num"><input type="number" id="cb-area" name="area" min="10" max="500" step="1" value="50" inputmode="numeric"><span>м²</span></div>
+            <input type="range" id="cb-range" min="10" max="300" step="5" value="50" aria-label="Площа, м²">
+          </div>
+        </div>
+
+        <fieldset class="f"><legend>Додаткові послуги</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="extra" value="Холодильник всередині" data-p="300"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="t">Помити холодильник всередині</span><em>+300 грн</em></label>
+            <label class="opt"><input type="checkbox" name="extra" value="Духова шафа / мікрохвильовка" data-p="300"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="t">Помити духову шафу / мікрохвильовку</span><em>+300 грн</em></label>
+            <label class="opt"><input type="checkbox" name="extra" value="Вікна" id="cb-win" data-win="100"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="t">Помити вікна</span><em>100 грн/вікно</em></label>
+            <div class="step" id="cb-step" hidden><span>Кількість вікон</span>
+              <div><button type="button" id="cb-minus" aria-label="Менше">−</button><output id="cb-wn">2</output><button type="button" id="cb-plus" aria-label="Більше">+</button></div>
+            </div>
+            <label class="opt"><input type="checkbox" name="extra" value="Прасування білизни" data-p="250"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="t">Прасування білизни</span><em>від 250 грн</em></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <aside class="calc-result">
+        <p class="r-label">Орієнтовна вартість</p>
+        <div class="r-price" id="cb-price" aria-live="polite">0<small>грн</small></div>
+        <ul class="r-list" id="cb-list"></ul>
+        <label class="f"><span>Ваш номер телефону (Viber / Telegram)</span><input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+38 0__ ___ __ __" required></label>
+        <p class="m-err" hidden></p>
+        <button class="btn btn-main" type="submit">Отримати точний розрахунок</button>
+        <p class="m-note">Зв’яжемося в месенджері та назвемо точну ціну. Оплата — тільки після вашої перевірки.</p>
+      </aside>
+    </form>
+
+    <div class="m-done calc-done" id="cb-done" hidden>
+      <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h3>Дякуємо, заявку отримано!</h3>
+      <p>Напишемо вам у Viber або Telegram і назвемо точну вартість.</p>
+      <button type="button" class="btn btn-alt" id="cb-again">Розрахувати ще раз</button>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="portfolio" aria-labelledby="t-work">
+  <div class="work-in">
+    <h2 id="t-work">Результати нашої роботи говорять самі за себе</h2>
+    <p class="lead">Потягніть повзунок, щоб побачити різницю до та після прибирання</p>
+    <div class="ba-grid">
+      <figure class="ba">
+        <div class="ba-view" role="slider" tabindex="0" aria-label="До та після: Видалення застарілого жиру на кухонному фартуху та витяжці." aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos:50%">
+          <!-- Щоб використати реальні фото, замініть svg на <img src="before.jpg" alt=""> у шарі «до» та <img src="after.jpg" alt=""> у шарі «після» -->
+          <div class="ba-layer"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="tkd" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="#D9CA9F"/><path d="M0 0H50M0 0V50" stroke="#A38F63" stroke-width="2.5"/></pattern><linearGradient id="hkd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#948A6C"/><stop offset="1" stop-color="#6F6652"/></linearGradient><filter id="bkd" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter></defs><rect width="400" height="500" fill="url(#tkd)"/><rect x="150" width="100" height="62" fill="url(#hkd)"/><path d="M78 62h244l52 96H26z" fill="url(#hkd)"/><rect x="26" y="152" width="348" height="10" rx="3" fill="#6F6652"/><rect y="392" width="400" height="108" fill="#3B382F"/><ellipse cx="105" cy="396" rx="62" ry="14" fill="#2B2924"/><ellipse cx="295" cy="396" rx="62" ry="14" fill="#2B2924"/><rect x="68" y="322" width="74" height="70" rx="9" fill="#847A5E"/><rect x="62" y="316" width="86" height="12" rx="6" fill="#6C634C"/><rect x="146" y="340" width="24" height="9" rx="4" fill="#6C634C"/><g filter="url(#bkd)" fill="#5E3C0E" opacity=".45"><ellipse cx="70" cy="250" rx="50" ry="34"/><ellipse cx="300" cy="250" rx="60" ry="40"/><ellipse cx="190" cy="320" rx="70" ry="26"/><ellipse cx="345" cy="335" rx="28" ry="36"/><ellipse cx="200" cy="110" rx="110" ry="24"/><ellipse cx="105" cy="360" rx="40" ry="22"/></g><path d="M52 160v70" stroke="#5A360C" opacity=".55" stroke-width="6" stroke-linecap="round"/><circle cx="52" cy="233" r="5" fill="#5A360C" opacity=".55"/><path d="M104 160v120" stroke="#5A360C" opacity=".55" stroke-width="6" stroke-linecap="round"/><circle cx="104" cy="283" r="5" fill="#5A360C" opacity=".55"/><path d="M160 160v54" stroke="#5A360C" opacity=".55" stroke-width="6" stroke-linecap="round"/><circle cx="160" cy="217" r="5" fill="#5A360C" opacity=".55"/><path d="M222 160v96" stroke="#5A360C" opacity=".55" stroke-width="6" stroke-linecap="round"/><circle cx="222" cy="259" r="5" fill="#5A360C" opacity=".55"/><path d="M280 160v150" stroke="#5A360C" opacity=".55" stroke-width="6" stroke-linecap="round"/><circle cx="280" cy="313" r="5" fill="#5A360C" opacity=".55"/><path d="M338 160v64" stroke="#5A360C" opacity=".55" stroke-width="6" stroke-linecap="round"/><circle cx="338" cy="227" r="5" fill="#5A360C" opacity=".55"/></svg><img data-photo="images/portfolio-1-before" alt="До прибирання" decoding="async"></div>
+          <div class="ba-layer ba-after"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="tka" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="#EBF8FB"/><rect x="4" y="4" width="42" height="42" rx="4" fill="#fff" opacity=".45"/><path d="M0 0H50M0 0V50" stroke="#C3E2EA" stroke-width="2.5"/></pattern><linearGradient id="hka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FAFEFF"/><stop offset="1" stop-color="#BCD3DB"/></linearGradient><filter id="bka" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter></defs><rect width="400" height="500" fill="url(#tka)"/><rect x="150" width="100" height="62" fill="url(#hka)"/><path d="M78 62h244l52 96H26z" fill="url(#hka)"/><rect x="26" y="152" width="348" height="10" rx="3" fill="#BCD3DB"/><rect y="392" width="400" height="108" fill="#47707D"/><ellipse cx="105" cy="396" rx="62" ry="14" fill="#2F505B"/><ellipse cx="295" cy="396" rx="62" ry="14" fill="#2F505B"/><rect x="68" y="322" width="74" height="70" rx="9" fill="#E4F0F4"/><rect x="62" y="316" width="86" height="12" rx="6" fill="#CFE3EA"/><rect x="146" y="340" width="24" height="9" rx="4" fill="#CFE3EA"/><path d="M96 64h34L100 152H62z" fill="#fff" opacity=".75"/><path d="M142 64h12l-30 88h-12z" fill="#fff" opacity=".6"/><rect x="78" y="332" width="10" height="48" rx="5" fill="#fff" opacity=".8"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(296 196) scale(1.417)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(48 236) scale(1.000)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(326 312) scale(1.167)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(176 244) scale(0.833)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(214 20) scale(0.917)" fill="#19B3C8" opacity="1"/></svg><img data-photo="images/portfolio-1-after" alt="Після прибирання" decoding="async"></div>
+          <span class="tag tag-b">До</span><span class="tag tag-a">Після</span>
+          <div class="ba-line"><span class="knob"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+        </div>
+        <figcaption>Видалення застарілого жиру на кухонному фартуху та витяжці.</figcaption>
+      </figure>
+      <figure class="ba">
+        <div class="ba-view" role="slider" tabindex="0" aria-label="До та після: Очищення вапняного нальоту та іржі у ванній кімнаті." aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos:50%">
+          <!-- Щоб використати реальні фото, замініть svg на <img src="before.jpg" alt=""> у шарі «до» та <img src="after.jpg" alt=""> у шарі «після» -->
+          <div class="ba-layer"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="tbd" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#B7CDC9"/><path d="M0 0H40M0 0V40" stroke="#6F8274" stroke-width="2.5"/></pattern><linearGradient id="cbd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9CBC3"/><stop offset="1" stop-color="#8A8D84"/></linearGradient><filter id="bbd" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter></defs><rect width="400" height="500" fill="url(#tbd)"/><path d="M340 0v64h-52" fill="none" stroke="url(#cbd)" stroke-width="12" stroke-linecap="round"/><path d="M262 70h56l18 36h-92z" fill="url(#cbd)"/><g fill="#5E6F76" opacity=".7"><circle cx="262" cy="96" r="2.6"/><circle cx="282" cy="96" r="2.6"/><circle cx="302" cy="96" r="2.6"/><circle cx="322" cy="96" r="2.6"/></g><rect x="170" y="236" width="56" height="44" rx="12" fill="url(#cbd)"/><rect x="128" y="242" width="36" height="14" rx="6" fill="url(#cbd)"/><rect x="232" y="242" width="36" height="14" rx="6" fill="url(#cbd)"/><path d="M198 262h70q20 0 20 20v18h-16v-16q0-6-6-6h-68z" fill="url(#cbd)"/><rect y="350" width="400" height="150" fill="#E4DABB"/><rect y="340" width="400" height="26" rx="8" fill="#D3C79F"/><ellipse cx="200" cy="470" rx="170" ry="26" fill="#000" opacity=".06"/><ellipse cx="200" cy="430" rx="30" ry="9" fill="url(#cbd)"/><ellipse cx="200" cy="430" rx="14" ry="4" fill="#58707A" opacity=".6"/><g filter="url(#bbd)" fill="#44523F" opacity=".42"><ellipse cx="60" cy="120" rx="40" ry="24"/><ellipse cx="80" cy="300" rx="28" ry="40"/><ellipse cx="360" cy="260" rx="24" ry="34"/><ellipse cx="150" cy="60" rx="30" ry="18"/></g><g filter="url(#bbd)" fill="none" stroke="#B4561C" opacity=".7" stroke-linecap="round"><path d="M280 302C284 340 274 380 282 428" stroke-width="9"/><path d="M300 108v50" stroke-width="7"/><ellipse cx="200" cy="430" rx="38" ry="13" stroke-width="7"/></g><g fill="#F7F4E8" opacity=".92"><circle cx="186" cy="246" r="5"/><circle cx="210" cy="252" r="4"/><circle cx="236" cy="262" r="5"/><circle cx="262" cy="270" r="4"/><circle cx="272" cy="286" r="5"/><circle cx="280" cy="298" r="4"/><circle cx="272" cy="84" r="5"/><circle cx="302" cy="86" r="4"/><circle cx="324" cy="100" r="4"/><circle cx="180" cy="268" r="4"/><circle cx="140" cy="248" r="4"/><circle cx="252" cy="248" r="4"/></g><ellipse cx="200" cy="356" rx="150" ry="6" fill="#B89B4A" opacity=".35"/></svg><img data-photo="images/portfolio-2-before" alt="До прибирання" decoding="async"></div>
+          <div class="ba-layer ba-after"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="tba" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#CFF1F6"/><rect x="4" y="4" width="32" height="32" rx="4" fill="#fff" opacity=".45"/><path d="M0 0H40M0 0V40" stroke="#A6D9E3" stroke-width="2.5"/></pattern><linearGradient id="cba" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#9DB9C4"/></linearGradient><filter id="bba" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter></defs><rect width="400" height="500" fill="url(#tba)"/><path d="M340 0v64h-52" fill="none" stroke="url(#cba)" stroke-width="12" stroke-linecap="round"/><path d="M262 70h56l18 36h-92z" fill="url(#cba)"/><g fill="#5E6F76" opacity=".7"><circle cx="262" cy="96" r="2.6"/><circle cx="282" cy="96" r="2.6"/><circle cx="302" cy="96" r="2.6"/><circle cx="322" cy="96" r="2.6"/></g><rect x="170" y="236" width="56" height="44" rx="12" fill="url(#cba)"/><rect x="128" y="242" width="36" height="14" rx="6" fill="url(#cba)"/><rect x="232" y="242" width="36" height="14" rx="6" fill="url(#cba)"/><path d="M198 262h70q20 0 20 20v18h-16v-16q0-6-6-6h-68z" fill="url(#cba)"/><rect y="350" width="400" height="150" fill="#FFFFFF"/><rect y="340" width="400" height="26" rx="8" fill="#E3F3F7"/><ellipse cx="200" cy="470" rx="170" ry="26" fill="#000" opacity=".06"/><ellipse cx="200" cy="430" rx="30" ry="9" fill="url(#cba)"/><ellipse cx="200" cy="430" rx="14" ry="4" fill="#58707A" opacity=".6"/><rect x="176" y="242" width="8" height="30" rx="4" fill="#fff" opacity=".95"/><path d="M204 268h60" stroke="#fff" stroke-width="4" opacity=".9" stroke-linecap="round"/><path d="M268 80h40" stroke="#fff" stroke-width="4" opacity=".9" stroke-linecap="round"/><path d="M30 374h110" stroke="#BFE3EC" stroke-width="5" stroke-linecap="round"/><ellipse cx="280" cy="312" rx="3.500" ry="5" fill="#8FD9EA"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(300 200) scale(1.417)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(60 200) scale(1.000)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(330 380) scale(1.167)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(120 300) scale(0.833)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(214 150) scale(0.917)" fill="#59D2BA" opacity="1"/></svg><img data-photo="images/portfolio-2-after" alt="Після прибирання" decoding="async"></div>
+          <span class="tag tag-b">До</span><span class="tag tag-a">Після</span>
+          <div class="ba-line"><span class="knob"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+        </div>
+        <figcaption>Очищення вапняного нальоту та іржі у ванній кімнаті.</figcaption>
+      </figure>
+      <figure class="ba">
+        <div class="ba-view" role="slider" tabindex="0" aria-label="До та після: Генеральне прибирання квартири в Ужгороді після будівельників." aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos:50%">
+          <!-- Щоб використати реальні фото, замініть svg на <img src="before.jpg" alt=""> у шарі «до» та <img src="after.jpg" alt=""> у шарі «після» -->
+          <div class="ba-layer"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="frd" width="100" height="50" patternUnits="userSpaceOnUse"><rect width="100" height="50" fill="#B8A889"/><path d="M0 0H100M0 25H100M50 0V25M0 25V50" stroke="#9C8C6E" stroke-width="2"/></pattern><linearGradient id="prd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C5D1D3"/><stop offset="1" stop-color="#DDE4E3"/></linearGradient><linearGradient id="lrd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient><filter id="brd" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter></defs><rect width="400" height="340" fill="#D9D5CC"/><rect y="330" width="400" height="170" fill="url(#frd)"/><rect y="318" width="400" height="14" fill="#C9C4B8"/><rect x="104" y="64" width="192" height="200" rx="6" fill="#BDB8AC" stroke="#A9A398" stroke-width="3"/><rect x="114" y="74" width="172" height="180" fill="url(#prd)"/><rect x="196" y="74" width="8" height="180" fill="#BDB8AC"/><rect x="114" y="160" width="172" height="8" fill="#BDB8AC"/><rect x="94" y="262" width="212" height="12" rx="3" fill="#BDB8AC" stroke="#A9A398" stroke-width="2"/><path d="M130 90L190 150M150 80L230 160M230 90L280 140M140 210L200 250" stroke="#fff" stroke-width="10" opacity=".35" stroke-linecap="round"/><g fill="#7FB4D6"><circle cx="50" cy="130" r="7"/><circle cx="62" cy="150" r="3"/><circle cx="340" cy="110" r="6"/><circle cx="352" cy="140" r="4"/><circle cx="330" cy="200" r="5"/></g><g fill="#fff"><circle cx="70" cy="240" r="6"/><circle cx="46" cy="210" r="3"/><circle cx="352" cy="250" r="5"/></g><path d="M30 430q20-52 70-34 40-22 70 34z" fill="#EDEAE2"/><path d="M30 430h140" stroke="#B5AFA0" stroke-width="4"/><g fill="#D8D3C6"><ellipse cx="190" cy="438" rx="9" ry="5"/><ellipse cx="210" cy="428" rx="6" ry="4"/><ellipse cx="22" cy="450" rx="8" ry="5"/></g><rect x="286" y="388" width="64" height="58" rx="6" fill="#8D9DA4"/><path d="M290 388q28-34 56 0" fill="none" stroke="#6E7E85" stroke-width="4"/><path d="M296 388v40M322 388v26M338 388v34" stroke="#fff" stroke-width="7" stroke-linecap="round"/><g fill="#6B5E46" opacity=".35"><ellipse cx="170" cy="420" rx="12" ry="20"/><ellipse cx="200" cy="452" rx="12" ry="20"/><ellipse cx="150" cy="458" rx="12" ry="20"/></g><g filter="url(#brd)" fill="#8C8268" opacity=".3"><ellipse cx="90" cy="100" rx="70" ry="40"/><ellipse cx="320" cy="300" rx="80" ry="40"/><ellipse cx="200" cy="470" rx="150" ry="30"/></g><rect width="400" height="500" fill="#A59B86" opacity=".18"/></svg><img data-photo="images/portfolio-3-before" alt="До прибирання" decoding="async"></div>
+          <div class="ba-layer ba-after"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="fra" width="100" height="50" patternUnits="userSpaceOnUse"><rect width="100" height="50" fill="#E6C998"/><path d="M0 0H100M0 25H100M50 0V25M0 25V50" stroke="#D3AE78" stroke-width="2"/></pattern><linearGradient id="pra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BDEBFA"/><stop offset="1" stop-color="#F6FDFF"/></linearGradient><linearGradient id="lra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><filter id="bra" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter></defs><rect width="400" height="340" fill="#F1F7F9"/><rect y="330" width="400" height="170" fill="url(#fra)"/><rect y="318" width="400" height="14" fill="#FFFFFF"/><rect x="104" y="64" width="192" height="200" rx="6" fill="#FFFFFF" stroke="#CFE3EA" stroke-width="3"/><rect x="114" y="74" width="172" height="180" fill="url(#pra)"/><rect x="196" y="74" width="8" height="180" fill="#FFFFFF"/><rect x="114" y="160" width="172" height="8" fill="#FFFFFF"/><rect x="94" y="262" width="212" height="12" rx="3" fill="#FFFFFF" stroke="#CFE3EA" stroke-width="2"/><path d="M118 262h164l86 238H32z" fill="url(#lra)" opacity=".55"/><path d="M60 470h280" stroke="#fff" opacity=".45" stroke-width="6" stroke-linecap="round"/><path d="M300 420h44l-6 44h-32z" fill="#8EE0CC"/><g fill="#4CBF9F"><ellipse cx="322" cy="385" rx="9" ry="32"/><ellipse transform="rotate(-38 322 420)" cx="322" cy="388" rx="9" ry="30"/><ellipse transform="rotate(38 322 420)" cx="322" cy="388" rx="9" ry="30"/></g><path d="M130 90L170 90L130 150z" fill="#fff" opacity=".6"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(70 150) scale(1.333)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(340 120) scale(1.083)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(250 360) scale(1.250)" fill="#19B3C8" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(110 380) scale(0.917)" fill="#59D2BA" opacity="1"/><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z" transform="translate(210 288) scale(0.833)" fill="#19B3C8" opacity="1"/></svg><img data-photo="images/portfolio-3-after" alt="Після прибирання" decoding="async"></div>
+          <span class="tag tag-b">До</span><span class="tag tag-a">Після</span>
+          <div class="ba-line"><span class="knob"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+        </div>
+        <figcaption>Генеральне прибирання квартири в Ужгороді після будівельників.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="trust" id="why-us" aria-labelledby="t-trust">
+  <div class="trust-in">
+    <div class="trust-head">
+      <h2 id="t-trust">Чому мешканці Ужгорода обирають наш клінінг?</h2>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><path class="sh" pathLength="1" d="M50 8l34 13v26c0 22-15 38-34 45C31 85 16 69 16 47V21z"/><path class="ck" pathLength="1" d="M34 50l11 11 21-23"/></svg>
+      </div>
+    </div>
+    <div class="t-grid">
+        <article class="t-card" style="--i:0">
+          <span class="t-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path pathLength="1" d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path pathLength="1" d="M24 32s-7-4.5-7-9.5a4 4 0 0 1 7-2.5 4 4 0 0 1 7 2.5c0 5-7 9.5-7 9.5z"/></svg></span>
+          <h3>Безпека та гіпоалергенність</h3>
+          <p>Використовуємо сертифіковані професійні засоби, безпечні для дітей та домашніх улюбленців.</p>
+        </article>
+        <article class="t-card" style="--i:1">
+          <span class="t-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path pathLength="1" d="M6 16h36v24H6z"/><path pathLength="1" d="M17 16v-5h14v5"/><path pathLength="1" d="M6 27h36"/><path pathLength="1" d="M21 27v5h6v-5"/></svg></span>
+          <h3>Власний інвентар та техніка</h3>
+          <p>Привозимо із собою все необхідне — від професійних пилососів до спеціальних серветок та драбин.</p>
+        </article>
+        <article class="t-card" style="--i:2">
+          <span class="t-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path pathLength="1" d="M6 22L24 7l18 15v18a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><path pathLength="1" d="M16.500 28.500l5 5 9.500-10"/></svg></span>
+          <h3>Матеріальна відповідальність</h3>
+          <p>Ми дбайливо ставимося до вашого майна та гарантуємо збереження кожної речі.</p>
+        </article>
+        <article class="t-card" style="--i:3">
+          <span class="t-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path pathLength="1" d="M8 14h28a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z"/><path pathLength="1" d="M8 14l24-8v8"/><path pathLength="1" d="M31 26h9v9h-9a4.500 4.500 0 0 1 0-9z"/><circle pathLength="1" cx="34.500" cy="30.500" r="1.200"/></svg></span>
+          <h3>Без передплат</h3>
+          <p>Ви перевіряєте якість виконаної роботи і тільки після цього здійснюєте оплату.</p>
+        </article>
+    </div>
+  </div>
+</section>
+
+<section class="rev" id="reviews" aria-labelledby="t-rev">
+  <div class="rev-head"><h2 id="t-rev">Що про нас кажуть клієнти</h2></div>
+  <!-- Скріншоти нижче намальовані як заглушки. Замініть їх на реальні відгуки: у кожному .shot можна лишити лише <img src="review1.jpg" alt="Відгук клієнта"> -->
+  <div class="rev-view">
+    <div class="rev-track">
+      <div class="grp"><article class="shot v" aria-label="Скріншот відгуку з Viber: Олена"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#A78BFA">О</i><div><b>Олена</b><small>Viber · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Добрий вечір! Дякую за прибирання, квартира просто сяє ✨<time>18:42</time></p><p class="msg in">Особливо дякую за ванну, думала, той наліт вже не відмити 😅<time>18:42</time></p><p class="msg out">Дуже раді, що вам сподобалось! Звертайтесь будь-коли 🙂<time>18:50 ✓✓</time></p><p class="msg in">Обов’язково, вже порекомендувала сусідці)<time>18:51</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot t" aria-label="Скріншот відгуку з Telegram: Андрій"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#5AB8E8">А</i><div><b>Андрій</b><small>Telegram · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Привіт! Усе перевірив, претензій немає. Оплату переказав<time>14:05</time></p><p class="msg out">Дякуємо, отримали! Гарного вам вечора<time>14:07 ✓✓</time></p><p class="msg in">Після ремонту такого не очікував, пилу ніби й не було 👍<time>14:08</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot v" aria-label="Скріншот відгуку з Viber: Марина"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#F59FB5">М</i><div><b>Марина</b><small>Viber · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Прибиральниці приїхали вчасно і все привезли з собою<time>11:20</time></p><p class="msg in">І діти, і кіт у повному порядку, запаху хімії зовсім немає<time>11:21</time></p><p class="msg out">Дякуємо за довіру! Наші засоби гіпоалергенні 🌿<time>11:30 ✓✓</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot t" aria-label="Скріншот відгуку з Telegram: Ігор"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#6FD0B0">І</i><div><b>Ігор</b><small>Telegram · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Замовляли для офісу на вихідні. У понеділок колеги питали, що змінилося 😄<time>09:12</time></p><p class="msg out">Дуже приємно чути! Домовимось про щотижневе прибирання?<time>09:20 ✓✓</time></p><p class="msg in">Так, давайте щосуботи<time>09:21</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot v" aria-label="Скріншот відгуку з Viber: Світлана"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#F5B971">С</i><div><b>Світлана</b><small>Viber · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Вікна помили без розводів, навіть москітні сітки<time>16:03</time></p><p class="msg in">Наступного разу замовлю на весь будинок<time>16:03</time></p><p class="msg out">Будемо раді! Гарного дня 🙂<time>16:10 ✓✓</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot t" aria-label="Скріншот відгуку з Telegram: Ольга"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#8FA6F0">О</i><div><b>Ольга</b><small>Telegram · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Генеральне після будівельників — це магія<time>19:34</time></p><p class="msg in">Кухня як нова, жир з витяжки зник повністю<time>19:34</time></p><p class="msg out">Дякуємо за теплі слова! ❤️<time>19:40 ✓✓</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article></div>
+      <div class="grp" aria-hidden="true"><article class="shot v" aria-hidden="true"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#A78BFA">О</i><div><b>Олена</b><small>Viber · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Добрий вечір! Дякую за прибирання, квартира просто сяє ✨<time>18:42</time></p><p class="msg in">Особливо дякую за ванну, думала, той наліт вже не відмити 😅<time>18:42</time></p><p class="msg out">Дуже раді, що вам сподобалось! Звертайтесь будь-коли 🙂<time>18:50 ✓✓</time></p><p class="msg in">Обов’язково, вже порекомендувала сусідці)<time>18:51</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot t" aria-hidden="true"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#5AB8E8">А</i><div><b>Андрій</b><small>Telegram · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Привіт! Усе перевірив, претензій немає. Оплату переказав<time>14:05</time></p><p class="msg out">Дякуємо, отримали! Гарного вам вечора<time>14:07 ✓✓</time></p><p class="msg in">Після ремонту такого не очікував, пилу ніби й не було 👍<time>14:08</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot v" aria-hidden="true"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#F59FB5">М</i><div><b>Марина</b><small>Viber · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Прибиральниці приїхали вчасно і все привезли з собою<time>11:20</time></p><p class="msg in">І діти, і кіт у повному порядку, запаху хімії зовсім немає<time>11:21</time></p><p class="msg out">Дякуємо за довіру! Наші засоби гіпоалергенні 🌿<time>11:30 ✓✓</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot t" aria-hidden="true"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#6FD0B0">І</i><div><b>Ігор</b><small>Telegram · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Замовляли для офісу на вихідні. У понеділок колеги питали, що змінилося 😄<time>09:12</time></p><p class="msg out">Дуже приємно чути! Домовимось про щотижневе прибирання?<time>09:20 ✓✓</time></p><p class="msg in">Так, давайте щосуботи<time>09:21</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot v" aria-hidden="true"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#F5B971">С</i><div><b>Світлана</b><small>Viber · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Вікна помили без розводів, навіть москітні сітки<time>16:03</time></p><p class="msg in">Наступного разу замовлю на весь будинок<time>16:03</time></p><p class="msg out">Будемо раді! Гарного дня 🙂<time>16:10 ✓✓</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article><article class="shot t" aria-hidden="true"><div class="sh-head"><span class="back">‹</span><i class="av" style="background:#8FA6F0">О</i><div><b>Ольга</b><small>Telegram · у мережі</small></div></div><div class="sh-body"><span class="day">Сьогодні</span><p class="msg in">Генеральне після будівельників — це магія<time>19:34</time></p><p class="msg in">Кухня як нова, жир з витяжки зник повністю<time>19:34</time></p><p class="msg out">Дякуємо за теплі слова! ❤️<time>19:40 ✓✓</time></p></div><div class="sh-foot"><span>Повідомлення</span><i></i></div></article></div>
+    </div>
+  </div>
+  <div class="r-grid">
+      <figure class="rcard">
+        <svg class="q" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 28c0-9 4-15 12-18l2 4c-5 2-7 5-7 9h6v13H10zm20 0c0-9 4-15 12-18l2 4c-5 2-7 5-7 9h6v13H30z"/></svg>
+        <div class="stars" role="img" aria-label="5 з 5"><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg></div>
+        <blockquote>Замовляла генеральне прибирання перед святами. Приїхали вчасно, все своє, працювали дуже акуратно. Перевірила кожну кімнату і лише тоді розрахувалась — саме так, як і обіцяли.</blockquote>
+        <figcaption>
+          <span class="ph"><!-- Замініть на реальне фото клієнта: <img src="client1.jpg" alt="Фото клієнта"> --><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#DDF3F8"/><path d="M14 100c0-22 16-30 36-30s36 8 36 30z" fill="#19B3C8"/><rect x="43" y="58" width="14" height="16" rx="6" fill="#F2C7A5"/><ellipse cx="50" cy="44" rx="18" ry="21" fill="#F2C7A5"/><path d="M28 52c-4-22 8-32 22-32s26 10 22 32c-2-8-4-13-6-16-8 4-24 4-32 0-2 3-4 8-6 16z" fill="#6B4A32"/></svg></span>
+          <span><b>Наталія М.</b><small>Квартира, Боздош</small></span>
+        </figcaption>
+      </figure>
+      <figure class="rcard">
+        <svg class="q" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 28c0-9 4-15 12-18l2 4c-5 2-7 5-7 9h6v13H10zm20 0c0-9 4-15 12-18l2 4c-5 2-7 5-7 9h6v13H30z"/></svg>
+        <div class="stars" role="img" aria-label="5 з 5"><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg></div>
+        <blockquote>Після ремонту будинку був жах: пил, плями від фарби. Команда впоралась за один день. Вікна блищать, підлога чиста — можна заселятись. Дякую!</blockquote>
+        <figcaption>
+          <span class="ph"><!-- Замініть на реальне фото клієнта: <img src="client1.jpg" alt="Фото клієнта"> --><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#E3F8F1"/><path d="M14 100c0-22 16-30 36-30s36 8 36 30z" fill="#59D2BA"/><rect x="43" y="58" width="14" height="16" rx="6" fill="#E9B98F"/><ellipse cx="50" cy="44" rx="18" ry="21" fill="#E9B98F"/><path d="M32 38c2-12 10-17 18-17s16 5 18 17c-6-4-12-6-18-6s-12 2-18 6z" fill="#3B2B22"/></svg></span>
+          <span><b>Богдан Т.</b><small>Будинок, Дравці</small></span>
+        </figcaption>
+      </figure>
+      <figure class="rcard">
+        <svg class="q" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 28c0-9 4-15 12-18l2 4c-5 2-7 5-7 9h6v13H10zm20 0c0-9 4-15 12-18l2 4c-5 2-7 5-7 9h6v13H30z"/></svg>
+        <div class="stars" role="img" aria-label="5 з 5"><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.400 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></svg></div>
+        <blockquote>Прибирають наш офіс раз на тиждень. Жодних запізнень, зручний час, завжди ввічливі. Колеги в захваті, тепер навіть ранкова кава смакує краще.</blockquote>
+        <figcaption>
+          <span class="ph"><!-- Замініть на реальне фото клієнта: <img src="client1.jpg" alt="Фото клієнта"> --><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#E3F0FA"/><path d="M14 100c0-22 16-30 36-30s36 8 36 30z" fill="#0E8FA5"/><rect x="43" y="58" width="14" height="16" rx="6" fill="#F5D3B8"/><ellipse cx="50" cy="44" rx="18" ry="21" fill="#F5D3B8"/><path d="M30 40c0-14 8-20 20-20s20 6 20 20c-4-7-10-10-20-10s-16 3-20 10z" fill="#C98A4B"/></svg></span>
+          <span><b>Юлія Г.</b><small>Офіс, центр Ужгорода</small></span>
+        </figcaption>
+      </figure>
+  </div>
+</section>
+
+<section class="flow" id="process" aria-labelledby="t-flow">
+  <div class="flow-in">
+    <h2 id="t-flow">4 кроки до ідеальної чистоти у вашому домі</h2>
+    <ol class="steps">
+      <li class="st">
+        <span class="num" aria-hidden="true">1</span>
+        <div class="sbody">
+          <span class="sic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM11 18h2"/></svg></span>
+          <h3>Заявка або дзвінок</h3>
+          <p>Ви залишаєте заявку на сайті або телефонуєте нам.</p>
+        </div>
+      </li>
+      <li class="st">
+        <span class="num" aria-hidden="true">2</span>
+        <div class="sbody">
+          <span class="sic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 9.500h8M8 12.500h5"/></svg></span>
+          <h3>Узгодження</h3>
+          <p>Обговорюємо обсяг робіт, фіксуємо точну вартість та зручний час.</p>
+        </div>
+      </li>
+      <li class="st">
+        <span class="num" aria-hidden="true">3</span>
+        <div class="sbody">
+          <span class="sic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11 4l1.800 5.200L18 11l-5.200 1.800L11 18l-1.800-5.200L4 11l5.200-1.800z"/><path d="M18.500 15.500l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></svg></span>
+          <h3>Прибирання</h3>
+          <p>Наша команда приїжджає вчасно зі своїм обладнанням та хімією.</p>
+        </div>
+      </li>
+      <li class="st">
+        <span class="num" aria-hidden="true">4</span>
+        <div class="sbody">
+          <span class="sic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7.800 12.500l3 3 5.600-6"/></svg></span>
+          <h3>Прийом роботи та оплата</h3>
+          <p>Ви приймаєте об’єкт, перевіряєте якість та оплачуєте послугу.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contacts" aria-labelledby="t-contact">
+  <div class="contact-in">
+    <h2 id="t-contact">Залишилися запитання? Зв’яжіться з нами напряму!</h2>
+    <div class="c-wrap">
+      <div class="c-grid">
+        <div class="c-card"><span class="c-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div class="c-txt"><small>Телефон для швидкого зв’язку</small><a class="big" href="tel:+380964123785">+38 (096) 412-37-85</a></div></div>
+        <div class="c-card"><span class="c-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.500 2"/></svg></span><div class="c-txt"><small>Графік роботи</small><b>Щодня з 08:00 до 20:00</b></div></div>
+        <div class="c-card wide"><span class="c-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 9.500h8M8 12.500h5"/></svg></span><div class="c-txt"><small>Написати у Viber / Telegram</small>
+          <div class="msgr"><a class="vb" href="viber://chat?number=%2B380964123785"><svg viewBox="0 0 24 24"><path d="M4 4h16v11H10l-5 4v-4H4z"/></svg>Viber</a><a class="tg" href="https://t.me/your_username" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2.500L11.500 20l3-5L21 4z"/></svg>Telegram</a></div></div></div>
+        <div class="c-card wide geo">
+          <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:220px"><span class="c-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.200 7-11.500A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.600"/></svg></span><div class="c-txt"><small>Географія роботи</small><b>м. Ужгород та передмістя (радіус до 20 км)</b></div></div>
+          <div class="map"><svg viewBox="0 0 200 150" aria-hidden="true">
+  <rect width="200" height="150" fill="#EAF8FB"/>
+  <path d="M-10 40C40 60 60 20 110 70S170 110 210 90" fill="none" stroke="#BFE7F1" stroke-width="12" stroke-linecap="round"/>
+  <g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><path d="M0 110L80 90 140 120 200 100"/><path d="M60 0L90 75 70 150"/><path d="M150 0L120 70 160 150"/></g>
+  <g fill="none" stroke="#D3ECF2" stroke-width="2"><path d="M0 60L50 50M130 30L200 45M20 140L60 125"/></g>
+  <circle class="ring" cx="100" cy="75" r="68"/><circle class="ring" cx="100" cy="75" r="68"/><circle class="ring" cx="100" cy="75" r="68"/>
+  <circle cx="100" cy="75" r="68" fill="none" stroke="#19B3C8" stroke-width="1.2" stroke-dasharray="4 4" opacity=".7"/>
+  <g class="pin"><path d="M100 88s10-8.500 10-17a10 10 0 0 0-20 0c0 8.500 10 17 10 17z" fill="#0E8FA5"/><circle cx="100" cy="71" r="3.600" fill="#fff"/></g>
+  <rect x="150" y="116" width="40" height="20" rx="10" fill="#fff"/><text x="170" y="130" text-anchor="middle" font-family="Onest,Arial,sans-serif" font-size="11" font-weight="800" fill="#0E8FA5">20 км</text>
+</svg></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <form name="consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="q-form">
+          <input type="hidden" name="form-name" value="consultation">
+          <p class="hp"><label>Не заповнюйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <h3>Швидкий виклик замірника / клінера</h3>
+          <p class="m-lead">Залиште контакти — передзвонимо та відповімо на всі запитання.</p>
+          <label class="f"><span>Ім’я</span><input type="text" name="name" autocomplete="name" placeholder="Як до вас звертатися" required></label>
+          <label class="f"><span>Номер телефону</span><input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+38 0__ ___ __ __" required></label>
+          <p class="m-err" hidden></p>
+          <button class="btn btn-main" type="submit">Замовити консультацію</button>
+          <p class="m-note">Натискаючи кнопку, ви погоджуєтесь на обробку контактних даних для зв’язку з вами.</p>
+        </form>
+        <div class="m-done" id="q-done" hidden style="padding:28px 0">
+          <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h3>Дякуємо, заявку отримано!</h3>
+          <p>Менеджер зателефонує вам найближчим часом.</p>
+          <button type="button" class="btn btn-alt" id="q-again">Надіслати ще одну</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-top">
+      <a href="#top" class="logo" aria-label="На початок сторінки">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></i>
+        <span>Клінінг для вашого комфорту</span>
+      </a>
+      <nav aria-label="Розділи сайту">
+        <a href="#services">Послуги</a><a href="#calculator">Калькулятор</a><a href="#portfolio">Результати</a><a href="#why-us">Переваги</a><a href="#reviews">Відгуки</a><a href="#process">Як ми працюємо</a><a href="#contacts">Контакти</a>
+      </nav>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Клінінг для вашого комфорту. Ужгород.</span>
+      <a href="tel:+380964123785">+38 (096) 412-37-85</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Попап: розрахунок вартості -->
+<dialog class="modal" id="modal-calc" aria-labelledby="t-calc">
+  <form class="m-body" name="calculator" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="calculator">
+    <input type="hidden" name="estimate" id="estimate-field">
+    <p class="hp"><label>Не заповнюйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <button type="button" class="m-close" data-close aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="t-calc">Розрахуйте вартість прибирання</h2>
+    <p class="m-lead">Оберіть параметри — ціна оновлюється одразу.</p>
+
+    <fieldset class="f"><legend>Що прибираємо</legend>
+      <div class="pills">
+        <label class="pill"><input type="radio" name="type" value="Квартира" data-k="1" checked><span>Квартира</span></label>
+        <label class="pill"><input type="radio" name="type" value="Будинок" data-k="1.15"><span>Будинок</span></label>
+        <label class="pill"><input type="radio" name="type" value="Офіс" data-k="1.05"><span>Офіс</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="f"><legend>Вид прибирання</legend>
+      <div class="pills">
+        <label class="pill"><input type="radio" name="kind" value="Підтримуюче" data-r="25" checked><span>Підтримуюче</span></label>
+        <label class="pill"><input type="radio" name="kind" value="Генеральне" data-r="45"><span>Генеральне</span></label>
+        <label class="pill"><input type="radio" name="kind" value="Після ремонту" data-r="55"><span>Після ремонту</span></label>
+      </div>
+    </fieldset>
+
+    <div class="range">
+      <div class="range-top"><label for="area">Площа</label><output id="area-out" for="area">50 м²</output></div>
+      <input type="range" id="area" name="area" min="20" max="300" step="5" value="50">
+    </div>
+
+    <fieldset class="f"><legend>Додатково</legend>
+      <div class="pills">
+        <label class="pill"><input type="checkbox" name="extra" value="Миття вікон" data-p="600"><span>Миття вікон</span></label>
+        <label class="pill"><input type="checkbox" name="extra" value="Духовка та холодильник" data-p="400"><span>Духовка та холодильник</span></label>
+        <label class="pill"><input type="checkbox" name="extra" value="Балкон" data-p="300"><span>Балкон</span></label>
+      </div>
+    </fieldset>
+
+    <div class="price"><span>Орієнтовна<br>вартість</span><strong id="price">0 грн</strong></div>
+
+    <label class="f"><span>Телефон для точного розрахунку</span><input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+38 0__ ___ __ __" required></label>
+    <p class="m-err" hidden></p>
+    <button class="btn btn-main" type="submit">Отримати точний розрахунок</button>
+    <p class="m-note">Остаточну ціну назвемо після уточнення деталей. Оплата — тільки після вашої перевірки.</p>
+  </form>
+  <div class="m-done" hidden>
+    <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h3>Дякуємо, заявку отримано!</h3>
+    <p>Менеджер зателефонує вам найближчим часом, щоб уточнити деталі.</p>
+    <button type="button" class="btn btn-alt" data-close>Закрити</button>
+  </div>
+</dialog>
+
+<!-- Попап: замовлення виїзду -->
+<dialog class="modal" id="modal-order" aria-labelledby="t-order">
+  <form class="m-body" name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="order">
+    <p class="hp"><label>Не заповнюйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <button type="button" class="m-close" data-close aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="t-order">Замовити виїзд клінера</h2>
+    <p class="m-lead">Залиште контакти — передзвонимо та узгодимо час.</p>
+
+    <label class="f"><span>Ваше ім’я</span><input type="text" name="name" autocomplete="name" placeholder="Як до вас звертатися" required></label>
+    <label class="f"><span>Телефон</span><input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+38 0__ ___ __ __" required></label>
+    <label class="f"><span>Адреса або район Ужгорода</span><input type="text" name="address" autocomplete="street-address" placeholder="Вулиця, будинок або район"></label>
+    <div class="row2">
+      <label class="f"><span>Дата</span><input type="date" name="date"></label>
+      <label class="f"><span>Час</span>
+        <select name="time">
+          <option>Ранок, 8:00–12:00</option>
+          <option>День, 12:00–17:00</option>
+          <option>Вечір, 17:00–21:00</option>
+        </select>
+      </label>
+    </div>
+    <label class="f"><span>Коментар</span><textarea name="comment" placeholder="Площа, тип прибирання, побажання"></textarea></label>
+    <p class="m-err" hidden></p>
+    <button class="btn btn-main" type="submit">Замовити виїзд</button>
+    <p class="m-note">Натискаючи кнопку, ви погоджуєтесь на обробку контактних даних для зв’язку з вами.</p>
+  </form>
+  <div class="m-done" hidden>
+    <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h3>Дякуємо, заявку отримано!</h3>
+    <p>Менеджер зателефонує вам найближчим часом, щоб уточнити деталі.</p>
+    <button type="button" class="btn btn-alt" data-close>Закрити</button>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var box=document.getElementById('bubbles');
+  if(!box||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var n=window.innerWidth<600?10:18;
+  for(var i=0;i<n;i++){
+    var b=document.createElement('span');
+    var s=10+Math.random()*46;
+    b.className='bubble';
+    b.style.width=b.style.height=s+'px';
+    b.style.left=(Math.random()*100)+'%';
+    b.style.setProperty('--dx',(Math.random()*80-40)+'px');
+    b.style.animationDuration=(9+Math.random()*10)+'s';
+    b.style.animationDelay=(-Math.random()*16)+'s';
+    box.appendChild(b);
+  }
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement;
+  function open(d){ if(!d.showModal)return; d.querySelector('form').hidden=false; d.querySelector('.m-done').hidden=true; d.showModal(); root.classList.add('lock'); }
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(){ open(document.getElementById(b.dataset.open)); });
+  });
+  document.querySelectorAll('dialog.modal').forEach(function(d){
+    d.addEventListener('click',function(e){ if(e.target===d||e.target.closest('[data-close]'))d.close(); });
+    d.addEventListener('close',function(){ root.classList.remove('lock'); });
+  });
+
+  /* калькулятор (ціни — орієнтовні, змініть під свій прайс) */
+  var f=document.querySelector('#modal-calc form'), area=document.getElementById('area'),
+      out=document.getElementById('area-out'), price=document.getElementById('price'),
+      est=document.getElementById('estimate-field'), MIN=250;
+  function calc(){
+    var k=+f.querySelector('[name=type]:checked').dataset.k,
+        r=+f.querySelector('[name=kind]:checked').dataset.r,
+        sum=area.value*r*k;
+    f.querySelectorAll('[name=extra]:checked').forEach(function(c){ sum+=+c.dataset.p; });
+    sum=Math.max(MIN,Math.round(sum/10)*10);
+    out.textContent=area.value+' м²';
+    var t=sum.toLocaleString('uk-UA')+' грн';
+    if(price.textContent!==t){ price.textContent=t; price.classList.add('bump'); setTimeout(function(){price.classList.remove('bump')},250); }
+    est.value=t;
+  }
+  f.addEventListener('input',calc); calc();
+
+  /* відправка у Netlify Forms */
+  document.querySelectorAll('dialog.modal form').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var err=form.querySelector('.m-err'), btn=form.querySelector('[type=submit]'), label=btn.textContent;
+      err.hidden=true; btn.disabled=true; btn.textContent='Надсилаємо…';
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){ if(!r.ok)throw 0; form.hidden=true; form.closest('dialog').querySelector('.m-done').hidden=false; form.reset(); calc(); })
+      .catch(function(){ err.textContent='Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.'; err.hidden=false; })
+      .then(function(){ btn.disabled=false; btn.textContent=label; });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var scenes=document.querySelectorAll('.scene');
+  scenes.forEach(function(sc){
+    sc.addEventListener('pointermove',function(e){
+      var r=sc.getBoundingClientRect();
+      sc.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      sc.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+    sc.addEventListener('pointerleave',function(){ sc.style.setProperty('--mx','-200px'); });
+    sc.addEventListener('animationend',function(e){ if(e.animationName==='demo')sc.classList.remove('demo'); });
+  });
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var i=0,io=new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if(!x.isIntersecting)return;
+      var el=x.target; io.unobserve(el);
+      el.querySelector('.dust').style.animationDelay=(i++%4)*.25+'s';
+      el.classList.add('demo');
+    });
+  },{threshold:.6});
+  scenes.forEach(function(sc){ io.observe(sc); });
+})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('cb-form'); if(!f)return;
+  var $=function(i){return document.getElementById(i)},
+      area=$('cb-area'),rng=$('cb-range'),win=$('cb-win'),step=$('cb-step'),wn=$('cb-wn'),
+      priceEl=$('cb-price'),list=$('cb-list'),est=$('cb-estimate'),sum=$('cb-summary'),
+      MIN=250,shown=0,raf,
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(n){return n.toLocaleString('uk-UA')}
+  function paint(n){priceEl.innerHTML=fmt(n)+'<small>грн</small>'}
+  function tween(to){
+    cancelAnimationFrame(raf);
+    if(reduce){shown=to;paint(to);return}
+    var from=shown,t0=performance.now();
+    (function tick(t){
+      var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);
+      shown=Math.round(from+(to-from)*e);paint(shown);
+      if(k<1)raf=requestAnimationFrame(tick);
+    })(t0);
+  }
+  function li(a,b,sub){return '<li'+(sub?' class="sub"':'')+'><span>'+a+'</span><span>'+b+'</span></li>'}
+  function calc(){
+    var a=Math.max(10,Math.min(500,+area.value||0)),
+        kind=f.querySelector('[name=kind]:checked'),r=+kind.dataset.r,
+        base=a*r,rows=li(kind.value+', '+a+' м²',fmt(base)+' грн'),names=[kind.value+', '+a+' м²'],total=base;
+    f.querySelectorAll('[name=extra]:checked').forEach(function(c){
+      var p,label=c.value;
+      if(c.dataset.win){var n=+wn.textContent;p=n*100;label='Вікна ×'+n}else{p=+c.dataset.p}
+      total+=p;rows+=li(label,'+'+fmt(p)+' грн',true);names.push(label);
+    });
+    total=Math.max(MIN,Math.round(total/10)*10);
+    list.innerHTML=rows;est.value=fmt(total)+' грн';sum.value=names.join('; ');
+    tween(total);
+  }
+  area.addEventListener('input',function(){ rng.value=Math.min(300,Math.max(10,+area.value||10)); calc(); });
+  rng.addEventListener('input',function(){ area.value=rng.value; calc(); });
+  win.addEventListener('change',function(){ step.hidden=!win.checked; calc(); });
+  $('cb-minus').addEventListener('click',function(){ wn.textContent=Math.max(1,+wn.textContent-1); calc(); });
+  $('cb-plus').addEventListener('click',function(){ wn.textContent=Math.min(30,+wn.textContent+1); calc(); });
+  f.addEventListener('change',calc);
+  calc();
+
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var err=f.querySelector('.m-err'),btn=f.querySelector('[type=submit]'),label=btn.textContent;
+    err.hidden=true;btn.disabled=true;btn.textContent='Надсилаємо…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(r){ if(!r.ok)throw 0; f.hidden=true; $('cb-done').hidden=false; f.reset(); step.hidden=true; wn.textContent=2; rng.value=50; calc(); })
+    .catch(function(){ err.textContent='Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.'; err.hidden=false; })
+    .then(function(){ btn.disabled=false; btn.textContent=label; });
+  });
+  $('cb-again').addEventListener('click',function(){ $('cb-done').hidden=true; f.hidden=false; });
+})();
+</script>
+<script>
+(function(){
+  var views=document.querySelectorAll('.ba-view');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  views.forEach(function(v){
+    var pos=50,drag=false,raf=0;
+    function set(p){
+      pos=Math.max(0,Math.min(100,p));
+      v.style.setProperty('--pos',pos+'%');
+      v.setAttribute('aria-valuenow',Math.round(pos));
+    }
+    function fromX(x){var r=v.getBoundingClientRect();set((x-r.left)/r.width*100)}
+    function stop(){cancelAnimationFrame(raf);v.classList.add('used')}
+    v.addEventListener('pointerdown',function(e){
+      stop();drag=true;v.setPointerCapture(e.pointerId);fromX(e.clientX);
+    });
+    v.addEventListener('pointermove',function(e){ if(drag)fromX(e.clientX); });
+    ['pointerup','pointercancel'].forEach(function(n){ v.addEventListener(n,function(){drag=false}); });
+    v.addEventListener('keydown',function(e){
+      var d={ArrowLeft:-5,ArrowDown:-5,ArrowRight:5,ArrowUp:5}[e.key];
+      if(e.key==='Home')d=-100; if(e.key==='End')d=100;
+      if(d){e.preventDefault();stop();set(pos+d)}
+    });
+    /* демонстрація: повзунок сам «протирає» зображення при появі на екрані */
+    if(reduce||!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(en){
+      if(!en[0].isIntersecting)return;
+      io.disconnect();
+      var path=[50,82,18,50],seg=0,t0=null,dur=1100;
+      function ease(k){return k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2}
+      function tick(t){
+        if(t0===null)t0=t;
+        var k=Math.min(1,(t-t0)/dur);
+        set(path[seg]+(path[seg+1]-path[seg])*ease(k));
+        if(k<1)raf=requestAnimationFrame(tick);
+        else if(++seg<path.length-1){t0=null;raf=requestAnimationFrame(tick)}
+      }
+      raf=requestAnimationFrame(tick);
+    },{threshold:.7});
+    io.observe(v);
+  });
+})();
+</script>
+<script>
+(function(){
+  var sec=document.querySelector('.trust'); if(!sec)return;
+  sec.querySelectorAll('.t-card').forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--x',(e.clientX-r.left)+'px');
+      c.style.setProperty('--y',(e.clientY-r.top)+'px');
+    });
+  });
+  if(!('IntersectionObserver' in window)){sec.classList.add('in');return}
+  var io=new IntersectionObserver(function(en){
+    if(en[0].isIntersecting){sec.classList.add('in');io.disconnect()}
+  },{threshold:.25});
+  io.observe(sec);
+})();
+</script>
+<script>
+(function(){
+  var steps=[].slice.call(document.querySelectorAll('.flow .st')); if(!steps.length)return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){steps.forEach(function(x){x.classList.add('on')});return}
+  var io=new IntersectionObserver(function(en){
+    var fresh=en.filter(function(e){return e.isIntersecting}).sort(function(a,b){return steps.indexOf(a.target)-steps.indexOf(b.target)});
+    fresh.forEach(function(e,k){
+      e.target.style.setProperty('--d',(k*.55)+'s');
+      e.target.classList.add('on');
+      io.unobserve(e.target);
+    });
+  },{threshold:.55});
+  steps.forEach(function(x){io.observe(x)});
+})();
+</script>
+<script>
+(function(){
+  var y=document.getElementById('yr'); if(y)y.textContent=new Date().getFullYear();
+  var f=document.getElementById('q-form'); if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var err=f.querySelector('.m-err'),btn=f.querySelector('[type=submit]'),label=btn.textContent;
+    err.hidden=true;btn.disabled=true;btn.textContent='Надсилаємо…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(r){ if(!r.ok)throw 0; f.hidden=true; document.getElementById('q-done').hidden=false; f.reset(); })
+    .catch(function(){ err.textContent='Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.'; err.hidden=false; })
+    .then(function(){ btn.disabled=false; btn.textContent=label; });
+  });
+  document.getElementById('q-again').addEventListener('click',function(){ document.getElementById('q-done').hidden=true; f.hidden=false; });
+})();
+</script>
+<script>
+(function(){
+  var ex=['jpg','jpeg','png','webp','JPG','JPEG','PNG'];
+  document.querySelectorAll('img[data-photo]').forEach(function(img){
+    var i=0;
+    function next(){ if(i>=ex.length){img.remove();return} img.src=img.dataset.photo+'.'+ex[i++]; }
+    img.onerror=next; next();
+  });
+})();
+</script>
+</body>
+</html>
